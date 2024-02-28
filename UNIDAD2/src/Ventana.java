@@ -1,8 +1,12 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -36,7 +40,7 @@ public class Ventana extends JFrame
 		this.setLayout(null);		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
-		this.setTitle("User Login");
+		this.setTitle("wo");
 		
 		this.setMinimumSize(new Dimension(250,250));
 		this.setMaximumSize(new Dimension(1000,750));
@@ -50,9 +54,10 @@ public class Ventana extends JFrame
 	public void IniciarComponentes()
 	{
 		//size, location, bg - opaque(opaque oblogatoria), texto string en el cosntructor
-		this.login();
+		//this.login();
 		//this.registro();
 		//this.admin();
+		this.calculadora();
 		this.repaint(); //con esto ya no tenemos que redimensionar, lo mismo con el de abajo
 		//this.validate();
 		
@@ -258,6 +263,8 @@ public class Ventana extends JFrame
 	}
 	
 	public void admin()
+
+	
 	{
 		JPanel adminPanel = new JPanel();
 		adminPanel.setSize(this.getWidth(), this.getHeight()); 
@@ -366,4 +373,62 @@ public class Ventana extends JFrame
 		this.add(adminPanel);
 	}
 
+	public void calculadora()
+	{
+		this.setSize(480, 650);//se cambia el tamaño dentro de la funcion para que cambie dependiendo de ella
+		
+		JPanel panel = new JPanel();
+		panel.setSize(this.getWidth(), this.getHeight());
+		panel.setBackground(Color.decode("#31283E"));
+		panel.setLayout(new BorderLayout());
+		
+		JLabel text = new JLabel("100.00", 0);
+		text.setOpaque(true);
+		text.setBackground(Color.white);
+		text.setFont(new Font("Consolas", Font.BOLD, 40));
+		panel.add(text, BorderLayout.NORTH);
+		
+		JPanel centro = new JPanel();
+		centro.setBackground(Color.darkGray);
+		centro.setLayout(new GridLayout(4, 3, 5, 5)); //renglones, columnas y separaciones
+		panel.add(centro, BorderLayout.CENTER);
+		
+		String buttons[] = {"7", "8", "9", "6", "5", "4", "3", "2", "1", "0", ".", "/"};
+		
+		for(int i = 0 ; i < 12 ; i++)
+		{
+			JButton boton = new JButton(buttons[i]);
+			centro.add(boton);
+		}
+		
+		
+		JPanel east = new JPanel();
+		east.setBackground(Color.pink);
+		east.setLayout(new GridLayout(4, 1, 5, 5));
+		panel.add(east, BorderLayout.EAST);
+		
+		String buttons2[] = {"   +   ", "   -   ", "   =   "};
+		
+		for(int i = 0 ; i < 3 ; i++)
+		{
+			JButton boton = new JButton(buttons2[i]);
+			east.add(boton);
+		}
+		
+		JPanel west = new JPanel();
+		west.setBackground(Color.blue);
+		west.setLayout(new BoxLayout(west, BoxLayout.Y_AXIS));
+		panel.add(west, BorderLayout.WEST);
+		
+		String buttons3[] = {"   MC   ", "   M+   ", "     *     "};
+		
+		for(int i = 0 ; i < 3 ; i++)
+		{
+			JButton boton = new JButton(buttons3[i]);
+			boton.setSize(70, 100);
+			west.add(boton);
+		}
+		
+		this.add(panel);
+	}
 }
