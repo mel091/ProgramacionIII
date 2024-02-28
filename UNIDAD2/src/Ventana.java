@@ -4,6 +4,7 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -27,7 +28,7 @@ public class Ventana extends JFrame
 	{
 		this.setVisible(true);
 		
-		this.setSize(1000, 640);
+		this.setSize(1000, 520);
 		this.setLocation(100, 100);
 		
 		this.setLocationRelativeTo(null); 
@@ -35,11 +36,13 @@ public class Ventana extends JFrame
 		this.setLayout(null);		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
-		System.out.println("hi"); //name
+		this.setTitle("User Login");
 		
 		this.setMinimumSize(new Dimension(250,250));
 		this.setMaximumSize(new Dimension(1000,750));
 		this.setResizable(true);
+		
+		
 			
 		this.IniciarComponentes();
 	}
@@ -47,9 +50,9 @@ public class Ventana extends JFrame
 	public void IniciarComponentes()
 	{
 		//size, location, bg - opaque(opaque oblogatoria), texto string en el cosntructor
-		//this.login();
+		this.login();
 		//this.registro();
-		this.admin();
+		//this.admin();
 		this.repaint(); //con esto ya no tenemos que redimensionar, lo mismo con el de abajo
 		//this.validate();
 		
@@ -60,50 +63,94 @@ public class Ventana extends JFrame
 				//ventana 1
 				JPanel login = new JPanel();
 				login.setSize(this.getWidth()/2, this.getHeight());
-				login.setBackground(Color.lightGray);
+				login.setBackground(Color.decode("#2D36AD"));
 				login.setLayout(null);				
 				
 				//etiqueta 
-				JLabel loginTag = new JLabel("INICIO", 0); //0 para centrar, 2 izq, 4 der
+				JLabel loginTag = new JLabel("USER LOGIN", 0); //0 para centrar, 2 izq, 4 der
 				loginTag.setSize(200, 60); //tamaño al elemento
-				loginTag.setFont(new Font("Arial", Font.BOLD, 25));
+				loginTag.setFont(new Font("Broadway Normal", Font.ITALIC, 25));
 				loginTag.setForeground(Color.white); //color de fuente
-				loginTag.setLocation(150, 35); //ubicacion, alternativa es setBounds 
-				loginTag.setOpaque(true); //permite ponerle fondo
-				loginTag.setBackground(Color.gray);
+				loginTag.setLocation(150, 15); //ubicacion, alternativa es setBounds 
 				login.add(loginTag); //que sea visible la etiqueta en la ventana
 				
-				JLabel userTag = new JLabel("USUARIO:");
-				userTag.setBounds(90, 97, 200, 50); //x, y, campo para el escrito(x, y)
-				userTag.setFont(new Font("Consolas", Font.BOLD, 18));
+				JLabel marcoTag = new JLabel("MY ACCOUNT"); //0 para centrar, 2 izq, 4 der
+				marcoTag.setSize(400, 60); //tamaño al elemento
+				marcoTag.setFont(new Font("Cooper Negra", Font.BOLD, 30));
+				marcoTag.setForeground(Color.yellow); //color de fuente
+				marcoTag.setLocation(150, 100); //ubicacion, alternativa es setBounds 
+				System.out.println("Font: " + marcoTag.getFont());
+
+				login.add(marcoTag);
+				
+				JLabel userTag = new JLabel("Enter your user name:");
+				userTag.setBounds(130, 165, 300, 50); 
+				userTag.setFont(new Font("Consolas", Font.BOLD, 15));
+				userTag.setForeground(Color.white);
 				login.add(userTag);
 				
-				JTextField userField = new JTextField();
-				userField.setBounds(88, 135, 300, 30);
-				login.add(userField);
+				JLabel logoUser = new JLabel();
+				logoUser.setIcon(new ImageIcon(getClass().getResource("usuario.png")));
+				logoUser.setBounds(100, 165, 100, 100);
+				login.add(logoUser);
 				
-				JLabel pswTag = new JLabel("CONTRASEÑA:");
-				pswTag.setBounds(90, 177, 200, 40);  
-				pswTag.setFont(new Font("Consolas", Font.BOLD, 18));
+				JLabel pswTag = new JLabel("Enter your password:");
+				pswTag.setBounds(130, 250, 200, 40);  
+				pswTag.setFont(new Font("Consolas", Font.BOLD, 15));
+				pswTag.setForeground(Color.white);
 				login.add(pswTag);
 				
-				JPasswordField pswField = new JPasswordField();
-				pswField.setBounds(88, 210, 300, 30);
-				login.add(pswField);
+				JLabel logoPsw = new JLabel();
+				logoPsw.setIcon(new ImageIcon(getClass().getResource("psw.png")));
+				logoPsw.setBounds(100, 245, 100, 100);
+				login.add(logoPsw);
 				
-				JCheckBox remember = new JCheckBox("Recordarme");
-				remember.setOpaque(false); 
-				remember.setBounds(90, 250, 100, 20);
-				login.add(remember);
-				
-				JLabel forgotTag = new JLabel("¿Olvidaste tu contraseña?");
-				forgotTag.setBounds(240, 240, 260, 40);
-				login.add(forgotTag);
-				
-				JButton loginBtn = new JButton("Acceder");
-				loginBtn.setBounds(175, 300, 150, 50);
+				JButton loginBtn = new JButton("Login");
+				loginBtn.setBounds(190, 330, 130, 40);
+				loginBtn.setFont(new Font("Arial", Font.BOLD, 16));
+				loginBtn.setForeground(Color.black);
+				loginBtn.setBackground(Color.yellow);
 				login.add(loginBtn);
 				
+				JLabel createAcc = new JLabel("¿No tienes cuenta?");
+				createAcc.setBounds(193, 385, 300, 50); //x, y, campo para el escrito(x, y)
+				createAcc.setFont(new Font("Consolas", Font.BOLD, 13));
+				createAcc.setForeground(Color.white);
+				login.add(createAcc);
+				
+				JButton crearBtn = new JButton("Crea una");
+				crearBtn .setBounds(190, 420, 130, 30);
+				crearBtn.setFont(new Font("Arial", Font.BOLD, 12));
+				crearBtn .setForeground(Color.black);
+				crearBtn .setBackground(Color.yellow);
+				login.add(crearBtn );
+				
+				JLabel marco = new JLabel(""); //0 para centrar, 2 izq, 4 der
+				marco.setSize(400, 300); //tamaño al elemento
+				marco.setLocation(50, 90); //ubicacion, alternativa es setBounds 
+				marco.setOpaque(true);
+				marco.setBackground(Color.decode("#1A217A"));
+				login.add(marco); 
+				
+				JTextField userField = new JTextField();
+				userField.setBounds(130, 200, 250, 30);
+				userField.setFont((new Font("Consolas", Font.BOLD, 15)));
+				login.add(userField);				
+				
+				JPasswordField pswField = new JPasswordField();
+				pswField.setBounds(130, 280, 250, 30);
+				pswField.setFont((new Font("Consolas", Font.BOLD, 15)));
+				login.add(pswField);
+				
+//				JCheckBox remember = new JCheckBox("Recordarme");
+//				remember.setOpaque(false); 
+//				remember.setBounds(90, 250, 100, 20);
+//				login.add(remember);
+//				
+//				JLabel forgotTag = new JLabel("¿Olvidaste tu contraseña?");
+//				forgotTag.setBounds(240, 240, 260, 40);
+//				login.add(forgotTag);
+								
 				this.add(login);
 				
 	}
