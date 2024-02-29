@@ -57,9 +57,10 @@ public class Ventana extends JFrame
 		//this.login();
 		//this.registro();
 		//this.admin();
-		this.calculadora();
+		//this.calculadora();
+		this.calculadoraDiseño();
 		this.repaint(); //con esto ya no tenemos que redimensionar, lo mismo con el de abajo
-		//this.validate();
+		this.validate();
 		
 	}
 	
@@ -389,7 +390,7 @@ public class Ventana extends JFrame
 		panel.add(text, BorderLayout.NORTH);
 		
 		JPanel centro = new JPanel();
-		centro.setBackground(Color.darkGray);
+		centro.setBackground(Color.decode("#7749B7"));
 		centro.setLayout(new GridLayout(4, 3, 5, 5)); //renglones, columnas y separaciones
 		panel.add(centro, BorderLayout.CENTER);
 		
@@ -398,37 +399,190 @@ public class Ventana extends JFrame
 		for(int i = 0 ; i < 12 ; i++)
 		{
 			JButton boton = new JButton(buttons[i]);
+			boton.setFont(new Font("Consolas", Font.BOLD, 25));
+			boton.setBackground(Color.decode("#C3A3F0"));
 			centro.add(boton);
 		}
 		
 		
 		JPanel east = new JPanel();
-		east.setBackground(Color.pink);
+		east.setBackground(Color.decode("#7749B7"));
 		east.setLayout(new GridLayout(4, 1, 5, 5));
 		panel.add(east, BorderLayout.EAST);
 		
-		String buttons2[] = {"   +   ", "   -   ", "   =   "};
+		String buttons2[] = {"  +  ", "  -  ", "  =  "};
 		
 		for(int i = 0 ; i < 3 ; i++)
 		{
 			JButton boton = new JButton(buttons2[i]);
+			boton.setFont(new Font("Consolas", Font.BOLD, 20));
+			boton.setBackground(Color.decode("#DBC7F6"));
 			east.add(boton);
 		}
 		
 		JPanel west = new JPanel();
-		west.setBackground(Color.blue);
+		west.setBackground(Color.decode("#7749B7"));
 		west.setLayout(new BoxLayout(west, BoxLayout.Y_AXIS));
 		panel.add(west, BorderLayout.WEST);
 		
-		String buttons3[] = {"   MC   ", "   M+   ", "     *     "};
+		String buttons3[] = {"   MC   ", "   M+   ", "   *    "};
 		
 		for(int i = 0 ; i < 3 ; i++)
 		{
 			JButton boton = new JButton(buttons3[i]);
-			boton.setSize(70, 100);
+			boton.setFont(new Font("Consolas", Font.BOLD, 20));
+			boton.setBackground(Color.decode("#DBC7F6"));
 			west.add(boton);
 		}
 		
 		this.add(panel);
 	}
+	
+	public void calculadoraDiseño() {
+	    this.setTitle("Calculadora Interés");
+	    this.setSize(500, 650);
+	    
+	    JPanel panelPrincipal = new JPanel();
+	    panelPrincipal.setSize(this.getWidth(), this.getHeight());
+	    panelPrincipal.setLocation(0, 0);
+	    panelPrincipal.setBackground(Color.white);
+	    panelPrincipal.setLayout(null);
+	    
+	    JLabel tag1 = new JLabel("Interés", 2);
+	    tag1.setOpaque(true);
+	    tag1.setFont(new Font("Broadway Normal", Font.ITALIC, 20));
+	    tag1.setBackground(Color.white);
+	    tag1.setForeground(Color.red);
+	    tag1.setBounds(0, 0, 500, 50);
+	    panelPrincipal.add(tag1);
+	    
+	    JLabel title = new JLabel("    Calcular Interés", 2);
+	    title.setBounds(30, 32, 435, 50);
+	    title.setFont(new Font("Consolas", Font.BOLD, 13));
+	    title.setForeground(Color.black);
+	    title.setBackground(Color.green);
+	    title.setOpaque(true);
+	    panelPrincipal.add(title);
+	    
+	    
+	    JLabel calcularPic = new JLabel();
+	    calcularPic.setIcon(new ImageIcon(getClass().getResource("calcular1.png")));
+	    calcularPic.setBounds(85, 297, 100, 100);
+		panelPrincipal.add(calcularPic);
+		
+	    JButton calcular = new JButton("    Calcular");
+	    calcular.setBounds(75, 330, 130, 35);
+	    calcular.setFont(new Font("Arial", Font.BOLD, 12));
+	    calcular.setForeground(Color.white);
+	    calcular.setBackground(Color.black);
+	    panelPrincipal.add(calcular);
+	    
+	    JLabel cancelarPic = new JLabel();
+	    cancelarPic.setIcon(new ImageIcon(getClass().getResource("cancelar.png")));
+	    cancelarPic.setBounds(295, 297, 100, 100);
+		panelPrincipal.add(cancelarPic);
+	    
+	    JButton cancelar = new JButton("    Cancelar");
+	    cancelar.setBounds(280, 330, 130, 35);
+	    cancelar.setFont(new Font("Arial", Font.BOLD, 12));
+	    cancelar.setForeground(Color.white);
+	    cancelar.setBackground(Color.black);
+	    panelPrincipal.add(cancelar);
+	    
+	    JLabel extra = new JLabel("");
+	    extra.setBounds(30, 320, 435, 60);
+	    extra.setBackground(Color.green);
+	    extra.setOpaque(true);
+	    panelPrincipal.add(extra);
+	   
+	    // Cambiar el layout manager de screen1 a GridLayout
+	    JPanel screen1 = new JPanel(new GridLayout(3, 2)); // Cambia 2, 2 según el número de filas y columnas que desees
+	    screen1.setSize(435, 260);
+	    screen1.setLocation(30, 60);
+	    screen1.setOpaque(true);
+	    screen1.setBackground(Color.green);
+	        
+	    // Agregar componentes al GridLayout
+	    JLabel capital = new JLabel("          Capital:");
+	    capital.setBounds(65, 90, 300, 50);
+	    capital.setFont(new Font("Consolas", Font.PLAIN, 12));
+	    capital.setForeground(Color.black);
+	    panelPrincipal.add(capital);
+	    
+	    JTextField capitalTxt = new JTextField();
+	    capitalTxt.setPreferredSize(new Dimension(15, 30));
+	    capitalTxt.setFont((new Font("Arial", Font.BOLD, 15)));
+	    panelPrincipal.add(capitalTxt);
+	    
+	    JLabel time = new JLabel("          Tiempo:");
+	    time.setBounds(65, 150, 300, 50);
+	    time.setFont(new Font("Consolas", Font.PLAIN, 12));
+	    time.setForeground(Color.black);
+	    panelPrincipal.add(time);
+	    
+	    JTextField timeTxt = new JTextField();
+	    timeTxt.setBounds(165, 155, 250, 30);
+	    timeTxt.setFont((new Font("Arial", Font.BOLD, 15)));
+	    panelPrincipal.add(timeTxt);
+	    
+	    JLabel tasa = new JLabel("          Tasa Interés:");
+	    tasa.setBounds(65, 210, 300, 50);
+	    tasa.setFont(new Font("Consolas", Font.PLAIN, 12));
+	    tasa.setForeground(Color.black);
+	    panelPrincipal.add(tasa);
+	    
+	    JTextField tasaTxt = new JTextField();
+	    tasaTxt.setBounds(165, 215, 250, 30);
+	    tasaTxt.setFont((new Font("Arial", Font.BOLD, 15)));
+	    panelPrincipal.add(tasaTxt);
+	    
+	    screen1.add(capital);
+	    screen1.add(capitalTxt);
+	    screen1.add(time);
+	    screen1.add(timeTxt);
+	    screen1.add(tasa);
+	    screen1.add(tasaTxt);
+	    
+	    panelPrincipal.add(screen1);
+	    
+	    JPanel screen2 = new JPanel(new GridLayout(2, 2)); // Cambia 2, 2 según el número de filas y columnas que desees
+	    screen2.setSize(435, 150);
+	    screen2.setLocation(30, 400); // Ajusta la posición vertical para evitar superposición
+	    screen2.setOpaque(true);
+	    screen2.setBackground(Color.pink);
+
+	    // Agregar componentes a screen2
+	    JLabel interes = new JLabel("          Interés:");
+	    interes.setBounds(65, 90, 300, 50);
+	    interes.setFont(new Font("Consolas", Font.PLAIN, 12));
+	    interes.setForeground(Color.black);
+	    panelPrincipal.add(interes);
+	    
+	    JTextField interesTxt = new JTextField();
+	    interesTxt.setPreferredSize(new Dimension(15, 30));
+	    interesTxt.setFont((new Font("Arial", Font.BOLD, 15)));
+	    panelPrincipal.add(interesTxt);
+	    
+	    JLabel monto = new JLabel("          Monto:");
+	    monto.setBounds(65, 150, 300, 50);
+	    monto.setFont(new Font("Consolas", Font.PLAIN, 12));
+	    monto.setForeground(Color.black);
+	    panelPrincipal.add(monto);
+	    
+	    JTextField montoTxt = new JTextField();
+	    montoTxt.setBounds(165, 155, 250, 30);
+	    montoTxt.setFont((new Font("Arial", Font.BOLD, 15)));
+	    panelPrincipal.add(montoTxt);
+    
+	    screen2.add(interes);
+	    screen2.add(interesTxt);  
+	    screen2.add(monto);
+	    screen2.add(montoTxt);
+
+	    panelPrincipal.add(screen2);
+
+	    
+	    this.add(panelPrincipal);
+	}
+
 }
