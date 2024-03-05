@@ -1,10 +1,17 @@
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -51,15 +58,58 @@ public class Ventana extends JFrame
 		this.IniciarComponentes();
 	}
 	
+	public void paint(Graphics g) //g = contexto = lienzo OBLIGATORIAMENTE DEBE LLAMARSE PAINT
+	{
+		super.paint(g);
+		
+		Graphics2D g2 = (Graphics2D)g; // utiliza el contexto y crea el pincel
+		
+		g2.setColor(Color.blue);
+		g2.fillRect(50, 50, 200, 100); //dibuja la figura(cuadrado, rectangulo)
+		g2.clearRect(100, 100, 100, 100); //borra zona especiifica
+		
+		g2.drawArc(300, 300, 100, 100, 45, 180);
+		g2.fillArc(320, 288, 100, 100, 45, 180);
+				
+		g2.setColor(Color.red);
+		g2.drawLine(0, 0, 500, 500);
+		
+		g2.drawOval(400, 400, 50, 80);
+		g2.fillOval(350, 400, 50, 80);
+		
+		int xPoints[] = {100, 250, 300};
+		int yPoints[] = {100, 200, 300};
+		//g2.drawPolygon(xPoints, yPoints, 3);
+		g2.fillPolygon(xPoints, yPoints, 3); //este y el de abajito hacen lo mismo
+		//g2.drawLine(30, 70, 770, 70);
+		g2.setFont(new Font("Broadway Normal", Font.BOLD, 25));
+		g2.drawString("hiiii", 130, 50);
+		g2.setStroke(new BasicStroke(10));
+		
+		g2.drawRoundRect(430, 150, 200, 150, 10, 10);
+		
+		try
+		{
+			BufferedImage image = ImageIO.read(new File("src/seven1.png"));
+			g2.drawImage(image, 50, 200, null);
+			
+		}catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public void IniciarComponentes()
 	{
-		//size, location, bg - opaque(opaque oblogatoria), texto string en el cosntructor
+		//size, location, bg - opaque(opaque oblogatoria), texto string en el constructor
 		//this.login();
 		//this.registro();
 		//this.admin();
 		//this.calculadora();
-		this.calculadoraDiseño();
-		this.repaint(); //con esto ya no tenemos que redimensionar, lo mismo con el de abajo
+		//this.calculadoraDiseño();
+				//this.paint(getGraphics()); no es necesaria
+		this.repaint(); //con esto ya no tenemos que redimensionar para que cargue, lo mismo con el de abajo
 		this.validate();
 		
 	}
