@@ -64,40 +64,161 @@ public class Ventana extends JFrame
 		
 		Graphics2D g2 = (Graphics2D)g; // utiliza el contexto y crea el pincel
 		
-		g2.setColor(Color.blue);
-		g2.fillRect(50, 50, 200, 100); //dibuja la figura(cuadrado, rectangulo)
-		g2.clearRect(100, 100, 100, 100); //borra zona especiifica
+		g2.setColor(Color.decode("#32CCE2")); //fondo
+		g2.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
-		g2.drawArc(300, 300, 100, 100, 45, 180);
-		g2.fillArc(320, 288, 100, 100, 45, 180);
-				
-		g2.setColor(Color.red);
-		g2.drawLine(0, 0, 500, 500);
+		int sepRayitas = 420;
 		
-		g2.drawOval(400, 400, 50, 80);
-		g2.fillOval(350, 400, 50, 80);
-		
-		int xPoints[] = {100, 250, 300};
-		int yPoints[] = {100, 200, 300};
-		//g2.drawPolygon(xPoints, yPoints, 3);
-		g2.fillPolygon(xPoints, yPoints, 3); //este y el de abajito hacen lo mismo
-		//g2.drawLine(30, 70, 770, 70);
-		g2.setFont(new Font("Broadway Normal", Font.BOLD, 25));
-		g2.drawString("hiiii", 130, 50);
-		g2.setStroke(new BasicStroke(10));
-		
-		g2.drawRoundRect(430, 150, 200, 150, 10, 10);
-		
-		try
+		for(int i = 0 ; i <= 2 ;i++)
 		{
-			BufferedImage image = ImageIO.read(new File("src/seven1.png"));
-			g2.drawImage(image, 50, 200, null);
+			g2.setColor(Color.decode("#A37102"));
+			g2.fillRect(0, sepRayitas, this.getWidth(), 15);
 			
-		}catch(IOException e)
-		{
-			e.printStackTrace();
+			sepRayitas -= 28;
 		}
 		
+		g2.setColor(Color.decode("#795815")); //lodo(?
+		g2.fillRect(0, 495, this.getWidth(), 28);
+		
+		g2.setColor(Color.decode("#67A438"));
+		g2.fillRect(0, 460, this.getWidth(), 20); //past
+		
+		g2.setColor(Color.decode("#E1C173")); //tierra
+		g2.fillRect(0, 480, this.getWidth(), 20);
+		
+		g2.setColor(Color.decode("#1E5414")); //pasto
+		g2.fillRect(0, 450, this.getWidth(), 10);
+		
+		g2.setColor(Color.decode("#73706B")); //chimenea grande
+		g2.fillRect(630, 100, 70, 200);
+		
+		g2.setColor(Color.decode("#4D4C49")); //chimenea xikita
+		g2.fillRect(615, 100, 100, 35);
+		
+		g2.setColor(Color.red);
+		int xPoints1[] = {750, 300, 380}; //primero: ancho, segundo: , ultimo: pico de arriba
+		int yPoints1[] = {230, 230, 40}; //primero: esquina izq , segundo: esq der , ultimo altura
+		g2.fillPolygon(xPoints1, yPoints1, 3);
+		
+		int xOffset = 0; // Desplazamiento horizontal inicial
+
+		for (int i = 0; i <= 2; i++) 
+		{
+		    g2.setColor(Color.decode("#F8AC43"));
+		    
+		    int xPoints[] = {50 + xOffset, 100 + xOffset, 75 + xOffset};
+		    int yPoints[] = {350, 350, 300}; 
+		    g2.fillPolygon(xPoints, yPoints, 3);
+		   
+		    g2.fillRect(50 + xOffset, 350, 50, 100);
+
+		    // Aumenta el desplazamiento horizontal para la siguiente iteración
+		    xOffset += 88; 
+		}
+		
+		int xOffset1 = 0; // Desplazamiento horizontal inicial
+
+		for (int i = 0; i <= 2; i++) 
+		{
+		    g2.setColor(Color.decode("#F8AC43"));
+		    
+		    int xPoints[] = {750 + xOffset1, 800 + xOffset1, 775 + xOffset1};
+		    int yPoints[] = {350, 350, 300}; 
+		    g2.fillPolygon(xPoints, yPoints, 3);
+		   
+		    g2.fillRect(750 + xOffset1, 350, 50, 100);
+
+		    // Aumenta el desplazamiento horizontal para la siguiente iteración
+		    xOffset1 += 88; 
+		}
+		
+			g2.setColor(Color.decode("#F7BB35")); //casa
+			g2.fillRect(330, 230, 390, 220);
+			
+			int sepRayasCasita = 435;
+			
+			for(int i = 0 ; i <= 8 ;i++)
+			{
+				g2.setColor(Color.decode("#C47907"));
+				g2.fillRect(330, sepRayasCasita, 390, 5);
+				
+				sepRayasCasita -= 25;
+			}
+		 
+		 	g2.setColor(Color.decode("#73706B")); //banqueta
+		 	g2.fillRect(300, 420, 445, 30);
+		
+		 	g2.setColor(Color.decode("#694B08")); //puerta marco
+			g2.fillRect(355, 255, 100, 165);
+			
+			g2.setColor(Color.decode("#9A7115")); //puerta 
+			g2.fillRect(360, 260, 90, 155);
+			
+			g2.setColor(Color.gray);
+			g2.fillArc(435, 340, 15, 15, 20, 360);
+			
+			g2.setColor(Color.decode("#F10E14")); //ventana1
+			g2.fillRect(480, 260, 105, 105);
+			
+			g2.setColor(Color.white);
+			g2.fillRect(485, 265, 45, 45);
+			g2.setColor(Color.white);
+			g2.fillRect(535, 265, 45, 45);
+			g2.setColor(Color.white);
+			g2.fillRect(485, 315, 45, 45);
+			g2.setColor(Color.white);
+			g2.fillRect(535, 315, 45, 45);
+			
+			g2.setColor(Color.decode("#F10E14")); //ventana2
+			g2.fillRect(600, 260, 105, 105);
+			
+			g2.setColor(Color.white);
+			g2.fillRect(605, 265, 45, 45);
+			g2.setColor(Color.white);
+			g2.fillRect(655, 265, 45, 45);
+			g2.setColor(Color.white);
+			g2.fillRect(605, 315, 45, 45);
+			g2.setColor(Color.white);
+			g2.fillRect(655, 315, 45, 45);
+		
+			g2.setColor(Color.decode("#4D4C49")); //solecito
+			g2.fillRect(475, 365, 235, 12);
+			
+			g2.setColor(Color.decode("#F2BE1A")); //manija
+			g2.fillArc(860, 50, 100, 100, 45, 360);
+			
+			g2.setColor(Color.decode("#B47703")); //letrero
+			g2.fillRect(50, 80, 200, 80);
+			g2.setColor(Color.black);
+			g2.setFont(new Font("Consolas", Font.BOLD, 15));
+			g2.drawString("refugio de gatitos", 80, 125);
+			
+
+		
+//		g2.clearRect(100, 100, 100, 100); //borra zona especiifica
+		
+//		g2.drawOval(400, 400, 50, 80);
+//		g2.fillOval(350, 400, 50, 80);
+//		
+//		int xPoints[] = {100, 250, 300};
+//		int yPoints[] = {100, 200, 300};
+//		//g2.drawPolygon(xPoints, yPoints, 3);
+//		g2.fillPolygon(xPoints, yPoints, 3); //este y el de abajito hacen lo mismo
+//		//g2.drawLine(30, 70, 770, 70);
+//		g2.setStroke(new BasicStroke(10));
+//		
+//		g2.drawRoundRect(430, 150, 200, 150, 10, 10);
+//		
+//		try
+//		{
+//			BufferedImage image = ImageIO.read(new File("src/seven1.png"));
+//			g2.drawImage(image, 50, 200, null);
+//			
+//		}catch(IOException e)
+//		{
+//			e.printStackTrace();
+//		}
+	
 	}
 	
 	public void IniciarComponentes()
