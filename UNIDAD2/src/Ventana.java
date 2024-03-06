@@ -64,137 +64,311 @@ public class Ventana extends JFrame
 		
 		Graphics2D g2 = (Graphics2D)g; // utiliza el contexto y crea el pincel
 		
-		g2.setColor(Color.decode("#32CCE2")); //fondo
+		g2.setColor(Color.decode("#6FF6EA")); //fondo
 		g2.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
-		int sepRayitas = 420;
+		g2.setColor(Color.decode("#946F2A")); //tierra
+		g2.fillRect(0, 420, this.getWidth(), 95);
 		
-		for(int i = 0 ; i <= 2 ;i++)
+		
+		
+		g2.setColor(Color.black);
+		g2.fillRoundRect(275, 185, 155, 155, 10, 10);
+		g2.setColor(Color.decode("#61B7F8")); //cuadro azul
+		g2.fillRoundRect(280, 190, 140, 220, 10, 10);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(288, 197, 25, 25, 45, 360);
+		g2.setColor(Color.gray); //tornillo up izq
+		g2.fillArc(290, 200, 20, 20, 45, 360);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(388, 197, 25, 25, 45, 360);
+		g2.setColor(Color.gray); //tornillo up der
+		g2.fillArc(390, 200, 20, 20, 45, 360);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(393, 382, 25, 25, 45, 360);
+		g2.setColor(Color.gray); //tornillo down der
+		g2.fillArc(395, 385, 20, 20, 45, 360);
+		g2.setColor(Color.black);
+		g2.fillRect(420, 220, 20, 190);
+		
+		g2.setColor(Color.black);
+		g2.fillRoundRect(195, 255, 160, 155, 10, 10);
+		g2.setColor(Color.pink); //cuadro rosa
+		g2.fillRoundRect(200, 260, 150, 150, 10, 10);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(208, 267, 25, 25, 45, 360);
+		g2.setColor(Color.gray); //tornillo up izq
+		g2.fillArc(210, 270, 20, 20, 45, 360);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(318, 267, 25, 25, 45, 360);
+		g2.setColor(Color.gray); //tornillo up der
+		g2.fillArc(320, 270, 20, 20, 45, 360);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(208, 383, 25, 25, 45, 360);
+		g2.setColor(Color.gray); //tornillo down izq
+		g2.fillArc(210, 385, 20, 20, 45, 360);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(318, 383, 25, 25, 45, 360);
+		g2.setColor(Color.gray); //tornillo down der
+		g2.fillArc(320, 385, 20, 20, 45, 360);
+		g2.setColor(Color.black);
+		g2.fillRect(350, 280, 20, 130);
+		
+		g2.setColor(Color.black);
+		g2.fillOval(67, 320, 55, 55);
+		g2.setColor(Color.black);
+		g2.fillOval(89, 345, 55, 85);
+		g2.setColor(Color.black);
+		g2.fillOval(35, 345, 70, 80);
+		g2.setColor(Color.green.darker());
+		g2.fillOval(70, 325, 50, 50);
+		g2.setColor(Color.green.darker());
+		g2.fillOval(90, 350, 50, 80);
+		g2.setColor(Color.green.darker());
+		g2.fillOval(40, 350, 65, 75);
+		
+		g2.setColor(Color.decode("#F38C2F")); //arena
+		g2.fillRect(0, 410, this.getWidth(), 25);
+		
+		g2.setColor(Color.black);
+		g2.fillRect(60, 65, 55, 55);
+		g2.setColor(Color.decode("#EF8720")); //bloques izq
+		g2.fillRoundRect(65, 70, 47, 47, 15, 15);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(70, 75, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo up der
+		g2.fillArc(100, 75, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo down izq
+		g2.fillArc(70, 110, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo up der
+		g2.fillArc(100, 110, 5, 5, 45, 360);
+		
+		g2.setColor(Color.black);
+		g2.fillRect(110, 65, 55, 55);		
+		g2.setColor(Color.decode("#EF8720")); //bloques izq
+		g2.fillRoundRect(115, 70, 47, 47, 15, 15);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(120, 75, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo up der
+		g2.fillArc(150, 75, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo down izq
+		g2.fillArc(120, 110, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo down der
+		g2.fillArc(150, 110, 5, 5, 45, 360);
+		
+		g2.setColor(Color.black);
+		g2.fillRect(25, 230, 55, 55);		
+		g2.setColor(Color.decode("#EF8720")); //bloques izq+
+		g2.fillRoundRect(30, 235, 47, 47, 20, 20);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(35, 240, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo up der
+		g2.fillArc(65, 240, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo down izq
+		g2.fillArc(35, 270, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo down der
+		g2.fillArc(65, 270, 5, 5, 45, 360);
+		
+		g2.setColor(Color.black);
+		g2.fillRect(850, 130, 55, 55);
+		g2.setColor(Color.decode("#EF8720")); //bloque der
+		g2.fillRoundRect(855, 135, 47, 47, 15, 15);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(860, 140, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo up der
+		g2.fillArc(890, 140, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo down izq
+		g2.fillArc(860, 170, 5, 5, 45, 360);
+		g2.setColor(Color.black); //tornillo up der
+		g2.fillArc(890, 170, 5, 5, 45, 360);
+		
+		g2.setColor(Color.black);
+		g2.fillRect(800, 220, 198, 190);
+		g2.setColor(Color.decode("#32D11E")); //cuadro verde
+		g2.fillRoundRect(805, 225, 188, 180, 10, 10);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(812, 233, 30, 30, 45, 360);
+		g2.setColor(Color.gray); //tornillo up izq
+		g2.fillArc(815, 235, 25, 25, 45, 360);
+		g2.setColor(Color.black); //tornillo up izq
+		g2.fillArc(812, 368, 30, 30, 45, 360);
+		g2.setColor(Color.gray); //tornillo down izq
+		g2.fillArc(815, 370, 25, 25, 45, 360);
+		
+		g2.setColor(Color.black); //cabeza tubo
+		g2.fillRect(530, 220, 150, 60);
+		g2.setColor(Color.decode("#6FFF5C")); 
+		g2.fillRect(535, 225, 25, 50);
+		g2.setColor(Color.decode("#2CA11D"));
+		g2.fillRect(560, 225, 60, 50);
+		g2.setColor(Color.decode("#1C7810"));
+		g2.fillRect(620, 225, 15, 50);
+		g2.setColor(Color.decode("#0D5004"));
+		g2.fillRect(635, 225, 40, 50);
+		
+		g2.setColor(Color.black); //cuerpo tubo
+		g2.fillRect(545, 280, 120, 130);
+		g2.setColor(Color.decode("#6FFF5C")); 
+		g2.fillRect(550, 285, 10, 125);
+		g2.setColor(Color.decode("#2CA11D"));
+		g2.fillRect(560, 285, 60, 125);
+		g2.setColor(Color.decode("#1C7810"));
+		g2.fillRect(620, 285, 15, 125);
+		g2.setColor(Color.decode("#0D5004"));
+		g2.fillRect(635, 285, 25, 125);
+		
+		int sepRayitas = 8;
+		
+		for(int i = 0 ; i <= 19 ;i++)
 		{
-			g2.setColor(Color.decode("#A37102"));
-			g2.fillRect(0, sepRayitas, this.getWidth(), 15);
+			g2.setColor(Color.decode("#7C4213"));
+			g2.fillRect(sepRayitas, 442, 35, 30);
 			
-			sepRayitas -= 28;
+			sepRayitas += 50;
 		}
 		
-		g2.setColor(Color.decode("#795815")); //lodo(?
-		g2.fillRect(0, 495, this.getWidth(), 28);
+		int sepRayitas1 = 8;
 		
-		g2.setColor(Color.decode("#67A438"));
-		g2.fillRect(0, 460, this.getWidth(), 20); //past
-		
-		g2.setColor(Color.decode("#E1C173")); //tierra
-		g2.fillRect(0, 480, this.getWidth(), 20);
-		
-		g2.setColor(Color.decode("#1E5414")); //pasto
-		g2.fillRect(0, 450, this.getWidth(), 10);
-		
-		g2.setColor(Color.decode("#73706B")); //chimenea grande
-		g2.fillRect(630, 100, 70, 200);
-		
-		g2.setColor(Color.decode("#4D4C49")); //chimenea xikita
-		g2.fillRect(615, 100, 100, 35);
-		
-		g2.setColor(Color.red);
-		int xPoints1[] = {750, 300, 380}; //primero: ancho, segundo: , ultimo: pico de arriba
-		int yPoints1[] = {230, 230, 40}; //primero: esquina izq , segundo: esq der , ultimo altura
-		g2.fillPolygon(xPoints1, yPoints1, 3);
-		
-		int xOffset = 0; // Desplazamiento horizontal inicial
-
-		for (int i = 0; i <= 2; i++) 
+		for(int i = 0 ; i <= 19 ;i++)
 		{
-		    g2.setColor(Color.decode("#F8AC43"));
-		    
-		    int xPoints[] = {50 + xOffset, 100 + xOffset, 75 + xOffset};
-		    int yPoints[] = {350, 350, 300}; 
-		    g2.fillPolygon(xPoints, yPoints, 3);
-		   
-		    g2.fillRect(50 + xOffset, 350, 50, 100);
-
-		    // Aumenta el desplazamiento horizontal para la siguiente iteración
-		    xOffset += 88; 
+			g2.setColor(Color.decode("#7C4213"));
+			g2.fillRect(sepRayitas1, 480, 35, 30);
+			
+			sepRayitas1 += 50;
 		}
 		
-		int xOffset1 = 0; // Desplazamiento horizontal inicial
+		
+		
+		/////////////////////////////////////////////////////////////
+		
+//		int sepRayitas = 420;
+//		
+//		for(int i = 0 ; i <= 2 ;i++)
+//		{
+//			g2.setColor(Color.decode("#A37102"));
+//			g2.fillRect(0, sepRayitas, this.getWidth(), 15);
+//			
+//			sepRayitas -= 28;
+//		}
+//		
+//		g2.setColor(Color.decode("#795815")); //lodo(?
+//		g2.fillRect(0, 495, this.getWidth(), 28);
+//		
+//		g2.setColor(Color.decode("#67A438"));
+//		g2.fillRect(0, 460, this.getWidth(), 20); //past
+//		
+//		g2.setColor(Color.decode("#E1C173")); //tierra
+//		g2.fillRect(0, 480, this.getWidth(), 20);
+//		
+//		g2.setColor(Color.decode("#1E5414")); //pasto
+//		g2.fillRect(0, 450, this.getWidth(), 10);
+//		
+//		g2.setColor(Color.decode("#73706B")); //chimenea grande
+//		g2.fillRect(630, 100, 70, 200);
+//		
+//		g2.setColor(Color.decode("#4D4C49")); //chimenea xikita
+//		g2.fillRect(615, 100, 100, 35);
+//		
+//		g2.setColor(Color.red);
+//		int xPoints1[] = {750, 300, 380}; //primero: ancho, segundo: , ultimo: pico de arriba
+//		int yPoints1[] = {230, 230, 40}; //primero: esquina izq , segundo: esq der , ultimo altura
+//		g2.fillPolygon(xPoints1, yPoints1, 3);
+//		
+//		int xOffset = 0; // Desplazamiento horizontal inicial
+//
+//		for (int i = 0; i <= 2; i++) 
+//		{
+//		    g2.setColor(Color.decode("#F8AC43"));
+//		    
+//		    int xPoints[] = {50 + xOffset, 100 + xOffset, 75 + xOffset};
+//		    int yPoints[] = {350, 350, 300}; 
+//		    g2.fillPolygon(xPoints, yPoints, 3);
+//		   
+//		    g2.fillRect(50 + xOffset, 350, 50, 100);
+//
+//		    // Aumenta el desplazamiento horizontal para la siguiente iteración
+//		    xOffset += 88; 
+//		}
+//		
+//		int xOffset1 = 0; // Desplazamiento horizontal inicial
+//
+//		for (int i = 0; i <= 2; i++) 
+//		{
+//		    g2.setColor(Color.decode("#F8AC43"));
+//		    
+//		    int xPoints[] = {750 + xOffset1, 800 + xOffset1, 775 + xOffset1};
+//		    int yPoints[] = {350, 350, 300}; 
+//		    g2.fillPolygon(xPoints, yPoints, 3);
+//		   
+//		    g2.fillRect(750 + xOffset1, 350, 50, 100);
+//
+//		    // Aumenta el desplazamiento horizontal para la siguiente iteración
+//		    xOffset1 += 88; 
+//		}
+//		
+//			g2.setColor(Color.decode("#F7BB35")); //casa
+//			g2.fillRect(330, 230, 390, 220);
+//			
+//			int sepRayasCasita = 435;
+//			
+//			for(int i = 0 ; i <= 8 ;i++)
+//			{
+//				g2.setColor(Color.decode("#C47907"));
+//				g2.fillRect(330, sepRayasCasita, 390, 5);
+//				
+//				sepRayasCasita -= 25;
+//			}
+//		 
+//		 	g2.setColor(Color.decode("#73706B")); //banqueta
+//		 	g2.fillRect(300, 420, 445, 30);
+//		
+//		 	g2.setColor(Color.decode("#694B08")); //puerta marco
+//			g2.fillRect(355, 255, 100, 165);
+//			
+//			g2.setColor(Color.decode("#9A7115")); //puerta 
+//			g2.fillRect(360, 260, 90, 155);
+//			
+//			g2.setColor(Color.gray);
+//			g2.fillArc(435, 340, 15, 15, 20, 360);
+//			
+//			g2.setColor(Color.decode("#F10E14")); //ventana1
+//			g2.fillRect(480, 260, 105, 105);
+//			
+//			g2.setColor(Color.white);
+//			g2.fillRect(485, 265, 45, 45);
+//			g2.setColor(Color.white);
+//			g2.fillRect(535, 265, 45, 45);
+//			g2.setColor(Color.white);
+//			g2.fillRect(485, 315, 45, 45);
+//			g2.setColor(Color.white);
+//			g2.fillRect(535, 315, 45, 45);
+//			
+//			g2.setColor(Color.decode("#F10E14")); //ventana2
+//			g2.fillRect(600, 260, 105, 105);
+//			
+//			g2.setColor(Color.white);
+//			g2.fillRect(605, 265, 45, 45);
+//			g2.setColor(Color.white);
+//			g2.fillRect(655, 265, 45, 45);
+//			g2.setColor(Color.white);
+//			g2.fillRect(605, 315, 45, 45);
+//			g2.setColor(Color.white);
+//			g2.fillRect(655, 315, 45, 45);
+//		
+//			g2.setColor(Color.decode("#4D4C49")); //solecito
+//			g2.fillRect(475, 365, 235, 12);
+//			
+//			g2.setColor(Color.decode("#F2BE1A")); //manija
+//			g2.fillArc(860, 50, 100, 100, 45, 360);
+//			
+//			g2.setColor(Color.decode("#B47703")); //letrero
+//			g2.fillRect(50, 80, 200, 80);
+//			g2.setColor(Color.black);
+//			g2.setFont(new Font("Consolas", Font.BOLD, 15));
+//			g2.drawString("refugio de gatitos", 80, 125);
+			
 
-		for (int i = 0; i <= 2; i++) 
-		{
-		    g2.setColor(Color.decode("#F8AC43"));
-		    
-		    int xPoints[] = {750 + xOffset1, 800 + xOffset1, 775 + xOffset1};
-		    int yPoints[] = {350, 350, 300}; 
-		    g2.fillPolygon(xPoints, yPoints, 3);
-		   
-		    g2.fillRect(750 + xOffset1, 350, 50, 100);
-
-		    // Aumenta el desplazamiento horizontal para la siguiente iteración
-		    xOffset1 += 88; 
-		}
-		
-			g2.setColor(Color.decode("#F7BB35")); //casa
-			g2.fillRect(330, 230, 390, 220);
-			
-			int sepRayasCasita = 435;
-			
-			for(int i = 0 ; i <= 8 ;i++)
-			{
-				g2.setColor(Color.decode("#C47907"));
-				g2.fillRect(330, sepRayasCasita, 390, 5);
-				
-				sepRayasCasita -= 25;
-			}
-		 
-		 	g2.setColor(Color.decode("#73706B")); //banqueta
-		 	g2.fillRect(300, 420, 445, 30);
-		
-		 	g2.setColor(Color.decode("#694B08")); //puerta marco
-			g2.fillRect(355, 255, 100, 165);
-			
-			g2.setColor(Color.decode("#9A7115")); //puerta 
-			g2.fillRect(360, 260, 90, 155);
-			
-			g2.setColor(Color.gray);
-			g2.fillArc(435, 340, 15, 15, 20, 360);
-			
-			g2.setColor(Color.decode("#F10E14")); //ventana1
-			g2.fillRect(480, 260, 105, 105);
-			
-			g2.setColor(Color.white);
-			g2.fillRect(485, 265, 45, 45);
-			g2.setColor(Color.white);
-			g2.fillRect(535, 265, 45, 45);
-			g2.setColor(Color.white);
-			g2.fillRect(485, 315, 45, 45);
-			g2.setColor(Color.white);
-			g2.fillRect(535, 315, 45, 45);
-			
-			g2.setColor(Color.decode("#F10E14")); //ventana2
-			g2.fillRect(600, 260, 105, 105);
-			
-			g2.setColor(Color.white);
-			g2.fillRect(605, 265, 45, 45);
-			g2.setColor(Color.white);
-			g2.fillRect(655, 265, 45, 45);
-			g2.setColor(Color.white);
-			g2.fillRect(605, 315, 45, 45);
-			g2.setColor(Color.white);
-			g2.fillRect(655, 315, 45, 45);
-		
-			g2.setColor(Color.decode("#4D4C49")); //solecito
-			g2.fillRect(475, 365, 235, 12);
-			
-			g2.setColor(Color.decode("#F2BE1A")); //manija
-			g2.fillArc(860, 50, 100, 100, 45, 360);
-			
-			g2.setColor(Color.decode("#B47703")); //letrero
-			g2.fillRect(50, 80, 200, 80);
-			g2.setColor(Color.black);
-			g2.setFont(new Font("Consolas", Font.BOLD, 15));
-			g2.drawString("refugio de gatitos", 80, 125);
-			
-
-		
+		//drawRoundRect
 //		g2.clearRect(100, 100, 100, 100); //borra zona especiifica
 		
 //		g2.drawOval(400, 400, 50, 80);
