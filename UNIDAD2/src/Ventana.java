@@ -60,329 +60,197 @@ public class Ventana extends JFrame
 	
 	public void paint(Graphics g) //g = contexto = lienzo OBLIGATORIAMENTE DEBE LLAMARSE PAINT
 	{
+		this.setSize(890, 600);
 		super.paint(g);
 		
 		Graphics2D g2 = (Graphics2D)g; // utiliza el contexto y crea el pincel
 		
-		g2.setColor(Color.decode("#6FF6EA")); //fondo
+		g2.setColor(Color.decode("#1463C8")); //fondo
 		g2.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
-		g2.setColor(Color.decode("#946F2A")); //tierra
-		g2.fillRect(0, 420, this.getWidth(), 95);
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(270, 445, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras #C2CAF9
+		g2.fillRoundRect(270, 440, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(145, 385, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras
+		g2.fillRoundRect(145, 380, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(240, 325, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras
+		g2.fillRoundRect(240, 320, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(680, 105, 180, 45, 80, 80);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras
+		g2.fillRoundRect(680, 100, 180, 45, 80, 80);
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(620, 155, 180, 45, 80, 80);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras
+		g2.fillRoundRect(620, 150, 180, 45, 80, 80);
+		
+		g2.setColor(Color.decode("#95A5FD")); //montaña azul - 
+		g2.fillRoundRect(47, 150, 185, 420, 150, 150);
+		g2.setColor(Color.decode("#CEE2FB")); //montaña azul - #C1CAF9
+		g2.fillRoundRect(50, 150, 170, 420, 150, 150);
+		g2.setColor(Color.decode("#EDF0FC"));
+		g2.fillArc(160, 200, 25, 35, 360, 360);
+		g2.fillArc(80, 260, 25, 35, 360, 360);
+		g2.fillArc(150, 360, 25, 35, 360, 360);
+		g2.setColor(Color.decode("#95A5FD")); //montaña azul - 
+		g2.fillRoundRect(347, 150, 185, 420, 150, 150);
+		g2.setColor(Color.decode("#CEE2FB"));
+		g2.fillRoundRect(350, 150, 170, 420, 150, 150);
+		g2.setColor(Color.decode("#EDF0FC"));
+		g2.fillArc(450, 190, 25, 35, 360, 360);
+		g2.fillArc(380, 230, 25, 35, 360, 360);
+		g2.fillArc(380, 310, 25, 35, 360, 360);
+		g2.setColor(Color.decode("#95A5FD")); //montaña azul - 
+		g2.fillRoundRect(497, 70, 185, 420, 150, 150);
+		g2.setColor(Color.decode("#CEE2FB"));
+		g2.fillRoundRect(500, 70, 170, 390, 150, 150);
+		g2.setColor(Color.decode("#EDF0FC"));
+		g2.fillArc(610, 110, 25, 35, 360, 360);
+		g2.fillArc(530, 220, 25, 35, 360, 360);
+		
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(-30, 285, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras
+		g2.fillRoundRect(-30, 280, 200, 50, 90, 90);
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(230, 260, 200, 40, 90, 90);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras
+		g2.fillRoundRect(230, 255, 200, 40, 90, 90);
+		g2.setColor(Color.decode("#C2CAF9")); //nubes detras 
+		g2.fillRoundRect(420, 305, 200, 40, 90, 90);
+		g2.setColor(Color.decode("#EEF2FB")); //nubes detras
+		g2.fillRoundRect(420, 300, 200, 40, 90, 90);
+		
+		g2.setColor(Color.decode("#294793")); //montaña azul+ #294793
+		g2.fillRoundRect(-30, 340, 180, 330, 150, 150);
+		g2.setColor(Color.decode("#75A6E5")); //montaña azul+ #294793
+		g2.fillRoundRect(-30, 343, 170, 325, 150, 150);
+		g2.setColor(Color.decode("#294793")); //montaña azul+ #294793
+		g2.fillRoundRect(392, 350, 193, 330, 150, 150);
+		g2.setColor(Color.decode("#75A6E5"));
+		g2.fillRoundRect(395, 353, 190, 350, 150, 150);
+		g2.setColor(Color.decode("#294793")); //montaña azul+ #294793
+		g2.fillRoundRect(577, 197, 195, 360, 150, 150);
+		g2.setColor(Color.decode("#75A6E5"));
+		g2.fillRoundRect(580, 200, 180, 360, 150, 150);
+		g2.setColor(Color.decode("#BDCDF8"));
+		g2.fillArc(625, 240, 24, 37, 360, 360);
+		g2.setColor(Color.decode("#BDCDF8"));
+		g2.fillArc(680, 400, 24, 37, 360, 360);
+		g2.setColor(Color.decode("#ECF0F9"));
+		g2.fillArc(650, 450, 300, 200, 360, 360);
+		
+		g2.setColor(Color.black); //piedras
+		g2.fillRoundRect(720, 310, 60, 50, 20, 20);
+		g2.setColor(Color.decode("#C4C4BC"));
+		g2.fillRoundRect(724, 313, 53, 43, 20, 20);		
+		g2.setColor(Color.black);
+		g2.fillRoundRect(720, 355, 60, 50, 20, 20);
+		g2.setColor(Color.decode("#C4C4BC"));
+		g2.fillRoundRect(724, 358, 53, 43, 20, 20);	
+		g2.setColor(Color.black);
+		g2.fillRoundRect(720, 400, 60, 50, 20, 20);
+		g2.setColor(Color.decode("#C4C4BC"));
+		g2.fillRoundRect(724, 403, 53, 43, 20, 20);	
+		g2.setColor(Color.black);
+		g2.fillRoundRect(720, 445, 60, 50, 20, 20);
+		g2.setColor(Color.decode("#C4C4BC"));
+		g2.fillRoundRect(724, 448, 53, 43, 20, 20);
 		
 		
+		g2.setColor(Color.black); //piedra amarilla
+		g2.fillRoundRect(780, 310, 60, 50, 20, 20);
+		g2.setColor(Color.decode("#F2F624"));
+		g2.fillRoundRect(784, 313, 53, 43, 20, 20);	
+		g2.setColor(Color.black);
+		g2.fillRect(800, 325, 5, 15);
+		g2.fillRect(817, 325, 5, 15);
+		g2.setColor(Color.black);
+		g2.fillRoundRect(840, 310, 60, 50, 20, 20);
+		g2.setColor(Color.decode("#F2F624"));
+		g2.fillRoundRect(844, 313, 53, 43, 20, 20);
+		g2.setColor(Color.black);
+		g2.fillRect(865, 325, 5, 15);
 		
-		g2.setColor(Color.black);
-		g2.fillRoundRect(275, 185, 155, 155, 10, 10);
-		g2.setColor(Color.decode("#61B7F8")); //cuadro azul
-		g2.fillRoundRect(280, 190, 140, 220, 10, 10);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(288, 197, 25, 25, 45, 360);
-		g2.setColor(Color.gray); //tornillo up izq
-		g2.fillArc(290, 200, 20, 20, 45, 360);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(388, 197, 25, 25, 45, 360);
-		g2.setColor(Color.gray); //tornillo up der
-		g2.fillArc(390, 200, 20, 20, 45, 360);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(393, 382, 25, 25, 45, 360);
-		g2.setColor(Color.gray); //tornillo down der
-		g2.fillArc(395, 385, 20, 20, 45, 360);
-		g2.setColor(Color.black);
-		g2.fillRect(420, 220, 20, 190);
+		g2.setColor(Color.black); //cabeza tubo2
+		g2.fillRect(790, 400, 110, 50);
+		g2.setColor(Color.decode("#3D4F65")); 
+		g2.fillRect(795, 405, 15, 40);
+		g2.setColor(Color.decode("#536A88"));
+		g2.fillRect(810, 405, 30, 40);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(840, 405, 20, 40);
+		g2.setColor(Color.decode("#BACCE3"));
+		g2.fillRect(860, 405, 10, 40);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(870, 405, 20, 40);
 		
-		g2.setColor(Color.black);
-		g2.fillRoundRect(195, 255, 160, 155, 10, 10);
-		g2.setColor(Color.pink); //cuadro rosa
-		g2.fillRoundRect(200, 260, 150, 150, 10, 10);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(208, 267, 25, 25, 45, 360);
-		g2.setColor(Color.gray); //tornillo up izq
-		g2.fillArc(210, 270, 20, 20, 45, 360);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(318, 267, 25, 25, 45, 360);
-		g2.setColor(Color.gray); //tornillo up der
-		g2.fillArc(320, 270, 20, 20, 45, 360);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(208, 383, 25, 25, 45, 360);
-		g2.setColor(Color.gray); //tornillo down izq
-		g2.fillArc(210, 385, 20, 20, 45, 360);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(318, 383, 25, 25, 45, 360);
-		g2.setColor(Color.gray); //tornillo down der
-		g2.fillArc(320, 385, 20, 20, 45, 360);
-		g2.setColor(Color.black);
-		g2.fillRect(350, 280, 20, 130);
+		g2.setColor(Color.black); //cuerpo tubo2
+		g2.fillRect(800, 450, 100, 80);
+		g2.setColor(Color.decode("#3D4F65")); 
+		g2.fillRect(805, 455, 5, 85);
+		g2.setColor(Color.decode("#536A88"));
+		g2.fillRect(810, 455, 30, 85);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(840, 455, 20, 85);
+		g2.setColor(Color.decode("#BACCE3"));
+		g2.fillRect(860, 455, 10, 85);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(870, 455, 17, 85);
+		g2.setColor(Color.decode("#536A88"));
+		g2.fillRect(887, 445, 10, 85);
 		
-		g2.setColor(Color.black);
-		g2.fillOval(67, 320, 55, 55);
-		g2.setColor(Color.black);
-		g2.fillOval(89, 345, 55, 85);
-		g2.setColor(Color.black);
-		g2.fillOval(35, 345, 70, 80);
-		g2.setColor(Color.green.darker());
-		g2.fillOval(70, 325, 50, 50);
-		g2.setColor(Color.green.darker());
-		g2.fillOval(90, 350, 50, 80);
-		g2.setColor(Color.green.darker());
-		g2.fillOval(40, 350, 65, 75);
 		
-		g2.setColor(Color.decode("#F38C2F")); //arena
-		g2.fillRect(0, 410, this.getWidth(), 25);
+		g2.setColor(Color.black); //pasto
+		g2.fillRect(0, 495, this.getWidth(), 30);
+		g2.setColor(Color.decode("#76E12F")); //pasto
+		g2.fillRect(0, 500, this.getWidth(), 15);
+		g2.setColor(Color.decode("#5FD049")); //pasto
+		g2.fillRect(0, 510, this.getWidth(), 5);
+		g2.setColor(Color.decode("#E5B26C")); //tierra
+		g2.fillRect(0, 520, this.getWidth(), 85);	
+		g2.setColor(Color.decode("#CC9850")); //tierra sombra
+		g2.fillRect(0, 520, this.getWidth(), 10);
 		
-		g2.setColor(Color.black);
-		g2.fillRect(60, 65, 55, 55);
-		g2.setColor(Color.decode("#EF8720")); //bloques izq
-		g2.fillRoundRect(65, 70, 47, 47, 15, 15);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(70, 75, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo up der
-		g2.fillArc(100, 75, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo down izq
-		g2.fillArc(70, 110, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo up der
-		g2.fillArc(100, 110, 5, 5, 45, 360);
-		
-		g2.setColor(Color.black);
-		g2.fillRect(110, 65, 55, 55);		
-		g2.setColor(Color.decode("#EF8720")); //bloques izq
-		g2.fillRoundRect(115, 70, 47, 47, 15, 15);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(120, 75, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo up der
-		g2.fillArc(150, 75, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo down izq
-		g2.fillArc(120, 110, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo down der
-		g2.fillArc(150, 110, 5, 5, 45, 360);
-		
-		g2.setColor(Color.black);
-		g2.fillRect(25, 230, 55, 55);		
-		g2.setColor(Color.decode("#EF8720")); //bloques izq+
-		g2.fillRoundRect(30, 235, 47, 47, 20, 20);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(35, 240, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo up der
-		g2.fillArc(65, 240, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo down izq
-		g2.fillArc(35, 270, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo down der
-		g2.fillArc(65, 270, 5, 5, 45, 360);
-		
-		g2.setColor(Color.black);
-		g2.fillRect(850, 130, 55, 55);
-		g2.setColor(Color.decode("#EF8720")); //bloque der
-		g2.fillRoundRect(855, 135, 47, 47, 15, 15);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(860, 140, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo up der
-		g2.fillArc(890, 140, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo down izq
-		g2.fillArc(860, 170, 5, 5, 45, 360);
-		g2.setColor(Color.black); //tornillo up der
-		g2.fillArc(890, 170, 5, 5, 45, 360);
-		
-		g2.setColor(Color.black);
-		g2.fillRect(800, 220, 198, 190);
-		g2.setColor(Color.decode("#32D11E")); //cuadro verde
-		g2.fillRoundRect(805, 225, 188, 180, 10, 10);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(812, 233, 30, 30, 45, 360);
-		g2.setColor(Color.gray); //tornillo up izq
-		g2.fillArc(815, 235, 25, 25, 45, 360);
-		g2.setColor(Color.black); //tornillo up izq
-		g2.fillArc(812, 368, 30, 30, 45, 360);
-		g2.setColor(Color.gray); //tornillo down izq
-		g2.fillArc(815, 370, 25, 25, 45, 360);
 		
 		g2.setColor(Color.black); //cabeza tubo
-		g2.fillRect(530, 220, 150, 60);
-		g2.setColor(Color.decode("#6FFF5C")); 
-		g2.fillRect(535, 225, 25, 50);
-		g2.setColor(Color.decode("#2CA11D"));
-		g2.fillRect(560, 225, 60, 50);
-		g2.setColor(Color.decode("#1C7810"));
-		g2.fillRect(620, 225, 15, 50);
-		g2.setColor(Color.decode("#0D5004"));
-		g2.fillRect(635, 225, 40, 50);
+		g2.fillRect(450, 355, 130, 50);
+		g2.setColor(Color.decode("#3D4F65")); 
+		g2.fillRect(455, 360, 15, 40);
+		g2.setColor(Color.decode("#536A88"));
+		g2.fillRect(470, 360, 30, 40);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(500, 360, 20, 40);
+		g2.setColor(Color.decode("#BACCE3"));
+		g2.fillRect(520, 360, 10, 40);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(530, 360, 20, 40);
+		g2.setColor(Color.decode("#536A88"));
+		g2.fillRect(550, 360, 25, 40);
 		
 		g2.setColor(Color.black); //cuerpo tubo
-		g2.fillRect(545, 280, 120, 130);
-		g2.setColor(Color.decode("#6FFF5C")); 
-		g2.fillRect(550, 285, 10, 125);
-		g2.setColor(Color.decode("#2CA11D"));
-		g2.fillRect(560, 285, 60, 125);
-		g2.setColor(Color.decode("#1C7810"));
-		g2.fillRect(620, 285, 15, 125);
-		g2.setColor(Color.decode("#0D5004"));
-		g2.fillRect(635, 285, 25, 125);
-		
-		int sepRayitas = 8;
-		
-		for(int i = 0 ; i <= 19 ;i++)
-		{
-			g2.setColor(Color.decode("#7C4213"));
-			g2.fillRect(sepRayitas, 442, 35, 30);
-			
-			sepRayitas += 50;
-		}
-		
-		int sepRayitas1 = 8;
-		
-		for(int i = 0 ; i <= 19 ;i++)
-		{
-			g2.setColor(Color.decode("#7C4213"));
-			g2.fillRect(sepRayitas1, 480, 35, 30);
-			
-			sepRayitas1 += 50;
-		}
+		g2.fillRect(465, 405, 100, 90);
+		g2.setColor(Color.decode("#3D4F65")); 
+		g2.fillRect(470, 410, 2, 85);
+		g2.setColor(Color.decode("#536A88"));
+		g2.fillRect(472, 410, 30, 85);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(502, 410, 20, 85);
+		g2.setColor(Color.decode("#BACCE3"));
+		g2.fillRect(522, 410, 10, 85);
+		g2.setColor(Color.decode("#6985A8"));
+		g2.fillRect(532, 410, 17, 85);
+		g2.setColor(Color.decode("#536A88"));
+		g2.fillRect(549, 410, 10, 85);
 		
 		
 		
-		/////////////////////////////////////////////////////////////
 		
-//		int sepRayitas = 420;
-//		
-//		for(int i = 0 ; i <= 2 ;i++)
-//		{
-//			g2.setColor(Color.decode("#A37102"));
-//			g2.fillRect(0, sepRayitas, this.getWidth(), 15);
-//			
-//			sepRayitas -= 28;
-//		}
-//		
-//		g2.setColor(Color.decode("#795815")); //lodo(?
-//		g2.fillRect(0, 495, this.getWidth(), 28);
-//		
-//		g2.setColor(Color.decode("#67A438"));
-//		g2.fillRect(0, 460, this.getWidth(), 20); //past
-//		
-//		g2.setColor(Color.decode("#E1C173")); //tierra
-//		g2.fillRect(0, 480, this.getWidth(), 20);
-//		
-//		g2.setColor(Color.decode("#1E5414")); //pasto
-//		g2.fillRect(0, 450, this.getWidth(), 10);
-//		
-//		g2.setColor(Color.decode("#73706B")); //chimenea grande
-//		g2.fillRect(630, 100, 70, 200);
-//		
-//		g2.setColor(Color.decode("#4D4C49")); //chimenea xikita
-//		g2.fillRect(615, 100, 100, 35);
-//		
-//		g2.setColor(Color.red);
-//		int xPoints1[] = {750, 300, 380}; //primero: ancho, segundo: , ultimo: pico de arriba
-//		int yPoints1[] = {230, 230, 40}; //primero: esquina izq , segundo: esq der , ultimo altura
-//		g2.fillPolygon(xPoints1, yPoints1, 3);
-//		
-//		int xOffset = 0; // Desplazamiento horizontal inicial
-//
-//		for (int i = 0; i <= 2; i++) 
-//		{
-//		    g2.setColor(Color.decode("#F8AC43"));
-//		    
-//		    int xPoints[] = {50 + xOffset, 100 + xOffset, 75 + xOffset};
-//		    int yPoints[] = {350, 350, 300}; 
-//		    g2.fillPolygon(xPoints, yPoints, 3);
-//		   
-//		    g2.fillRect(50 + xOffset, 350, 50, 100);
-//
-//		    // Aumenta el desplazamiento horizontal para la siguiente iteración
-//		    xOffset += 88; 
-//		}
-//		
-//		int xOffset1 = 0; // Desplazamiento horizontal inicial
-//
-//		for (int i = 0; i <= 2; i++) 
-//		{
-//		    g2.setColor(Color.decode("#F8AC43"));
-//		    
-//		    int xPoints[] = {750 + xOffset1, 800 + xOffset1, 775 + xOffset1};
-//		    int yPoints[] = {350, 350, 300}; 
-//		    g2.fillPolygon(xPoints, yPoints, 3);
-//		   
-//		    g2.fillRect(750 + xOffset1, 350, 50, 100);
-//
-//		    // Aumenta el desplazamiento horizontal para la siguiente iteración
-//		    xOffset1 += 88; 
-//		}
-//		
-//			g2.setColor(Color.decode("#F7BB35")); //casa
-//			g2.fillRect(330, 230, 390, 220);
-//			
-//			int sepRayasCasita = 435;
-//			
-//			for(int i = 0 ; i <= 8 ;i++)
-//			{
-//				g2.setColor(Color.decode("#C47907"));
-//				g2.fillRect(330, sepRayasCasita, 390, 5);
-//				
-//				sepRayasCasita -= 25;
-//			}
-//		 
-//		 	g2.setColor(Color.decode("#73706B")); //banqueta
-//		 	g2.fillRect(300, 420, 445, 30);
-//		
-//		 	g2.setColor(Color.decode("#694B08")); //puerta marco
-//			g2.fillRect(355, 255, 100, 165);
-//			
-//			g2.setColor(Color.decode("#9A7115")); //puerta 
-//			g2.fillRect(360, 260, 90, 155);
-//			
-//			g2.setColor(Color.gray);
-//			g2.fillArc(435, 340, 15, 15, 20, 360);
-//			
-//			g2.setColor(Color.decode("#F10E14")); //ventana1
-//			g2.fillRect(480, 260, 105, 105);
-//			
-//			g2.setColor(Color.white);
-//			g2.fillRect(485, 265, 45, 45);
-//			g2.setColor(Color.white);
-//			g2.fillRect(535, 265, 45, 45);
-//			g2.setColor(Color.white);
-//			g2.fillRect(485, 315, 45, 45);
-//			g2.setColor(Color.white);
-//			g2.fillRect(535, 315, 45, 45);
-//			
-//			g2.setColor(Color.decode("#F10E14")); //ventana2
-//			g2.fillRect(600, 260, 105, 105);
-//			
-//			g2.setColor(Color.white);
-//			g2.fillRect(605, 265, 45, 45);
-//			g2.setColor(Color.white);
-//			g2.fillRect(655, 265, 45, 45);
-//			g2.setColor(Color.white);
-//			g2.fillRect(605, 315, 45, 45);
-//			g2.setColor(Color.white);
-//			g2.fillRect(655, 315, 45, 45);
-//		
-//			g2.setColor(Color.decode("#4D4C49")); //solecito
-//			g2.fillRect(475, 365, 235, 12);
-//			
-//			g2.setColor(Color.decode("#F2BE1A")); //manija
-//			g2.fillArc(860, 50, 100, 100, 45, 360);
-//			
-//			g2.setColor(Color.decode("#B47703")); //letrero
-//			g2.fillRect(50, 80, 200, 80);
-//			g2.setColor(Color.black);
-//			g2.setFont(new Font("Consolas", Font.BOLD, 15));
-//			g2.drawString("refugio de gatitos", 80, 125);
-			
-
-		//drawRoundRect
-//		g2.clearRect(100, 100, 100, 100); //borra zona especiifica
-		
-//		g2.drawOval(400, 400, 50, 80);
-//		g2.fillOval(350, 400, 50, 80);
-//		
-//		int xPoints[] = {100, 250, 300};
-//		int yPoints[] = {100, 200, 300};
-//		//g2.drawPolygon(xPoints, yPoints, 3);
-//		g2.fillPolygon(xPoints, yPoints, 3); //este y el de abajito hacen lo mismo
-//		//g2.drawLine(30, 70, 770, 70);
-//		g2.setStroke(new BasicStroke(10));
-//		
-//		g2.drawRoundRect(430, 150, 200, 150, 10, 10);
-//		
 //		try
 //		{
 //			BufferedImage image = ImageIO.read(new File("src/seven1.png"));
