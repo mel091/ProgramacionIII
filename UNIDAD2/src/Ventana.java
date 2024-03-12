@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +41,7 @@ public class Ventana extends JFrame
 	{
 		this.setVisible(true);
 		
-		this.setSize(1000, 520);
+		this.setSize(1000, 700);
 		this.setLocation(100, 100);
 		
 		this.setLocationRelativeTo(null); 
@@ -58,6 +60,7 @@ public class Ventana extends JFrame
 		this.IniciarComponentes();
 	}
 	
+	/*
 	public void paint(Graphics g) //g = contexto = lienzo OBLIGATORIAMENTE DEBE LLAMARSE PAINT
 	{
 		this.setSize(890, 600);
@@ -262,12 +265,13 @@ public class Ventana extends JFrame
 //		}
 	
 	}
+	*/
 	
 	public void IniciarComponentes()
 	{
 		//size, location, bg - opaque(opaque oblogatoria), texto string en el constructor
-		//this.login();
-		//this.registro();
+		this.login();
+		this.registro();
 		//this.admin();
 		//this.calculadora();
 		//this.calculadoraDiseño();
@@ -279,6 +283,7 @@ public class Ventana extends JFrame
 	
 	public void login()
 	{
+		//this.setSize(530, 515);
 				//ventana 1
 				JPanel login = new JPanel();
 				login.setSize(this.getWidth()/2, this.getHeight());
@@ -329,6 +334,52 @@ public class Ventana extends JFrame
 				loginBtn.setFont(new Font("Arial", Font.BOLD, 16));
 				loginBtn.setForeground(Color.black);
 				loginBtn.setBackground(Color.yellow);
+				
+				JTextField userField = new JTextField();
+				userField.setBounds(130, 200, 250, 30);
+				userField.setFont((new Font("Consolas", Font.BOLD, 15)));
+				login.add(userField);				
+				
+				JPasswordField pswField = new JPasswordField();
+				pswField.setBounds(130, 280, 250, 30);
+				pswField.setFont((new Font("Consolas", Font.BOLD, 15)));
+				login.add(pswField);
+				
+				loginBtn.addActionListener(new ActionListener() 
+				{
+					@Override
+					public void actionPerformed(ActionEvent e) 
+					{
+						System.out.println("click");
+						 
+						 String usr = userField.getText();
+						 String psw = new String(pswField.getPassword());
+						
+						 if(usr.length() <= 0)
+						 {
+							 userField.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+							 System.out.println("Usuario requerido");
+							 						 
+						 }
+						 else
+						 {
+							 userField.setBorder(BorderFactory.createLineBorder(Color.green, 2));
+						 }
+						 
+						 if(psw.length() <= 0)
+							 {
+								 pswField.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+								 System.out.println("Contraseña obligatoria");						 						 
+							 }
+							 else
+							 {
+								 userField.setBorder(BorderFactory.createLineBorder(Color.green, 2));
+								 System.out.println("Bienvenido");
+							 }
+					 
+						 
+						 
+					}});
 				login.add(loginBtn);
 				
 				JLabel createAcc = new JLabel("¿No tienes cuenta?");
@@ -351,15 +402,7 @@ public class Ventana extends JFrame
 				marco.setBackground(Color.decode("#1A217A"));
 				login.add(marco); 
 				
-				JTextField userField = new JTextField();
-				userField.setBounds(130, 200, 250, 30);
-				userField.setFont((new Font("Consolas", Font.BOLD, 15)));
-				login.add(userField);				
 				
-				JPasswordField pswField = new JPasswordField();
-				pswField.setBounds(130, 280, 250, 30);
-				pswField.setFont((new Font("Consolas", Font.BOLD, 15)));
-				login.add(pswField);
 				
 //				JCheckBox remember = new JCheckBox("Recordarme");
 //				remember.setOpaque(false); 
@@ -376,6 +419,7 @@ public class Ventana extends JFrame
 	
 	public void registro()
 	{
+		//this.setSize(530, 700);
 		JPanel registro = new JPanel();
 		registro.setSize(this.getWidth()/2, this.getHeight());
 		registro.setLocation(500, 0);
@@ -471,6 +515,51 @@ public class Ventana extends JFrame
 		JButton rgsBtn = new JButton("Crear cuenta");
 		rgsBtn.setBounds(175, 530, 150, 35);
 		rgsBtn.setFont(new Font("Consolas", Font.BOLD, 12));
+		
+		rgsBtn.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.out.println("click");
+				 
+				 String bio = bioText.getText();
+				 String usr = userField.getText();
+				
+				 if(bio.length() <= 0)
+				 {
+					 bioText.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+					 System.out.println("Biografía requerido");		 						 
+				 }
+				 else
+				 {	
+					 bioText.setBorder(BorderFactory.createLineBorder(Color.green, 2));
+				 }
+					 
+				 
+				 if(usr.length() <= 0)
+					 {
+						 userField.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+						 System.out.println("Usuario requerido");						 						 
+					 }
+					 else
+					 {
+						 userField.setBorder(BorderFactory.createLineBorder(Color.green, 2));			 
+				 }
+				 
+				 if(acceptRadio.isSelected())
+				 {
+					 acceptRadio.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+					 System.out.println("Acepta términos");
+				 }
+				 else
+				 {
+					 acceptRadio.setBorder(BorderFactory.createLineBorder(Color.green, 2));
+				 }
+				 
+				 
+			}});
+		
 		registro.add(rgsBtn);
 		
 		this.add(registro);
