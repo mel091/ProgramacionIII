@@ -9,6 +9,9 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +40,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Ventana extends JFrame
+public class Ventana extends JFrame implements MouseListener
 {
 	public Ventana()
 	{
@@ -913,9 +916,8 @@ public class Ventana extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				int x = (int) Math.floor(Math.random()*450 + 1);
-				int y = (int) Math.floor(Math.random()*650 + 1);
-				
+//				int x = (int) Math.floor(Math.random()*450 + 1);
+//				int y = (int) Math.floor(Math.random()*650 + 1);
 				int w = (int) Math.floor(Math.random()*120 + 1);
 				int h = (int) Math.floor(Math.random()*120 + 1);
 				
@@ -926,36 +928,98 @@ public class Ventana extends JFrame
 				
 				Color RandColor = new Color(r, g, b);
 				
-				JButton anotherBtn = new JButton("Click again!");
-				{
-					anotherBtn.setBounds(x, y, w, h);
-					anotherBtn.setOpaque(true);
-					anotherBtn.setBackground(RandColor);
-					btnPanel.add(anotherBtn);
-					
-
-					ActionListener buttonAction = new ActionListener() 
-					{
-			            @Override
-			            public void actionPerformed(ActionEvent e) {
-			                JButton sourceBtn = (JButton) e.getSource();
-			                Color btnColor = sourceBtn.getBackground();
-			                String colorText = "Color: (" + r + ", " + g + ", " + b + ")";
-							JOptionPane.showMessageDialog(null, colorText);
-			            }
-			        };
-			        
-			        anotherBtn.addActionListener(buttonAction);
-			        
-					
-					
-					getContentPane().repaint();
-					getContentPane().revalidate();
-				}
 				
-				 
-			}});
+				btnPanel.addMouseListener(new MouseAdapter()
+				{
+					@Override
+					public void mousePressed(MouseEvent e) 
+					{
+						int x = e.getX();
+		                int y = e.getY();
+		                int w = (int) Math.floor(Math.random()*120 + 1);
+						int h = (int) Math.floor(Math.random()*120 + 1);
+						
+						Random rand = new Random();
+						float r = rand.nextFloat();
+						float g = rand.nextFloat();
+						float b = rand.nextFloat();
+						
+						Color RandColor = new Color(r, g, b);
+						String colorString = "#" + Integer.toHexString(RandColor.getRGB()).substring(2);
+
+						
+		                
+		                JButton anotherBtn = new JButton(colorString);
+						{
+							
+							anotherBtn.setBounds(x, y, w, h);
+							anotherBtn.setOpaque(true);
+							anotherBtn.setBackground(RandColor);
+							btnPanel.add(anotherBtn);
+							
+						
+
+							ActionListener buttonAction = new ActionListener() 
+							{
+					            @Override
+					            public void actionPerformed(ActionEvent e) 
+					            {
+					                JButton sourceBtn = (JButton) e.getSource();
+					                Color btnColor = sourceBtn.getBackground();
+					                String colorText = "Color: (" + r + ", " + g + ", " + b + ")";
+									JOptionPane.showMessageDialog(null, colorText);
+					            }
+					        };
+					        
+					        anotherBtn.addActionListener(buttonAction);
+					        
+							
+							
+							getContentPane().repaint();
+							getContentPane().revalidate();
+						}
+						
+						 
+					}});
+		                
+					}
+				});       
+						
+					
+				
 		
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }
