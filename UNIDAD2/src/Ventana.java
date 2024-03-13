@@ -28,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -905,6 +906,8 @@ public class Ventana extends JFrame
 		clickBtn.setFont(new Font("Consolas", Font.BOLD, 12));
 		btnPanel.add(clickBtn);
 		
+        
+		
 		clickBtn.addActionListener(new ActionListener() 
 		{
 			@Override
@@ -929,6 +932,22 @@ public class Ventana extends JFrame
 					anotherBtn.setOpaque(true);
 					anotherBtn.setBackground(RandColor);
 					btnPanel.add(anotherBtn);
+					
+
+					ActionListener buttonAction = new ActionListener() 
+					{
+			            @Override
+			            public void actionPerformed(ActionEvent e) {
+			                JButton sourceBtn = (JButton) e.getSource();
+			                Color btnColor = sourceBtn.getBackground();
+			                String colorText = "Color: (" + r + ", " + g + ", " + b + ")";
+							JOptionPane.showMessageDialog(null, colorText);
+			            }
+			        };
+			        
+			        anotherBtn.addActionListener(buttonAction);
+			        
+					
 					
 					getContentPane().repaint();
 					getContentPane().revalidate();
