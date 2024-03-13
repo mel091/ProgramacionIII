@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -270,8 +271,9 @@ public class Ventana extends JFrame
 	public void IniciarComponentes()
 	{
 		//size, location, bg - opaque(opaque oblogatoria), texto string en el constructor
-		this.login();
-		this.registro();
+		//this.login();
+		this.botones();
+		//this.registro();
 		//this.admin();
 		//this.calculadora();
 		//this.calculadoraDiseño();
@@ -887,4 +889,54 @@ public class Ventana extends JFrame
 	    this.add(panelPrincipal);
 	}
 
+	
+	public void botones()
+	{
+		this.setSize(500, 750);
+		JPanel btnPanel = new JPanel();
+		btnPanel.setSize(this.getWidth(), this.getHeight()); 
+		btnPanel.setLocation(0, 0); //pantalla completa + lo de arriba
+		btnPanel.setBackground(Color.decode("#AAA7E6"));
+		btnPanel.setLayout(null); 	
+		this.add(btnPanel);
+		
+		JButton clickBtn = new JButton("Click me!");
+		clickBtn.setBounds(175, 350, 150, 35);
+		clickBtn.setFont(new Font("Consolas", Font.BOLD, 12));
+		btnPanel.add(clickBtn);
+		
+		clickBtn.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				int x = (int) Math.floor(Math.random()*450 + 1);
+				int y = (int) Math.floor(Math.random()*650 + 1);
+				
+				int w = (int) Math.floor(Math.random()*120 + 1);
+				int h = (int) Math.floor(Math.random()*120 + 1);
+				
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+				
+				Color RandColor = new Color(r, g, b);
+				
+				JButton anotherBtn = new JButton("Click again!");
+				{
+					anotherBtn.setBounds(x, y, w, h);
+					anotherBtn.setOpaque(true);
+					anotherBtn.setBackground(RandColor);
+					btnPanel.add(anotherBtn);
+					
+					getContentPane().repaint();
+					getContentPane().revalidate();
+				}
+				
+				 
+			}});
+		
+		
+	}
 }
