@@ -904,6 +904,7 @@ public class Ventana extends JFrame implements MouseListener
 		btnPanel.setLayout(null); 	
 		this.add(btnPanel);
 		
+		
 		JButton clickBtn = new JButton("Click me!");
 		clickBtn.setBounds(175, 350, 150, 35);
 		clickBtn.setFont(new Font("Consolas", Font.BOLD, 12));
@@ -911,6 +912,8 @@ public class Ventana extends JFrame implements MouseListener
 		
 		clickBtn.addActionListener(new ActionListener() 
 		{
+			
+			
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -960,15 +963,23 @@ public class Ventana extends JFrame implements MouseListener
 						getContentPane().revalidate();
 						
 					}
-				
-				
-				
-						
-						 
+									 
 					}});
 		
 		btnPanel.addMouseListener(new MouseAdapter()
 		{
+			public void mouseEntered(MouseEvent e) 
+			{
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+				
+				Color RandColor = new Color(r, g, b);
+				
+				btnPanel.setBackground(RandColor);		
+			}	
+			
 			@Override
 			public void mousePressed(MouseEvent e) 
 			{
@@ -1024,11 +1035,8 @@ public class Ventana extends JFrame implements MouseListener
 					}
 				});       
 						
-					
-				
+	}				
 		
-		
-	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -1044,11 +1052,8 @@ public class Ventana extends JFrame implements MouseListener
 		
 	}
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 
 	@Override
 	public void mouseExited(MouseEvent e) {
@@ -1058,6 +1063,13 @@ public class Ventana extends JFrame implements MouseListener
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
