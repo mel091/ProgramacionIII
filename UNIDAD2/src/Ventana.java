@@ -9,6 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -40,8 +42,9 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Ventana extends JFrame implements MouseListener
+public class Ventana extends JFrame implements MouseListener, KeyListener
 {
+	JPanel btnPanel = new JPanel();
 	public Ventana()
 	{
 		this.setVisible(true);
@@ -54,12 +57,12 @@ public class Ventana extends JFrame implements MouseListener
 		this.setLayout(null);		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
-		this.setTitle("wo");
+		this.setTitle("window");
 		
 		this.setMinimumSize(new Dimension(250,250));
 		this.setMaximumSize(new Dimension(1000,750));
 		this.setResizable(true);
-		
+		addKeyListener(this);
 		
 			
 		this.IniciarComponentes();
@@ -897,7 +900,7 @@ public class Ventana extends JFrame implements MouseListener
 	public void botones()
 	{
 		this.setSize(500, 750);
-		JPanel btnPanel = new JPanel();
+		
 		btnPanel.setSize(this.getWidth(), this.getHeight()); 
 		btnPanel.setLocation(0, 0); //pantalla completa + lo de arriba
 		btnPanel.setBackground(Color.decode("#AAA7E6"));
@@ -908,6 +911,7 @@ public class Ventana extends JFrame implements MouseListener
 		JButton clickBtn = new JButton("Click me!");
 		clickBtn.setBounds(175, 350, 150, 35);
 		clickBtn.setFont(new Font("Consolas", Font.BOLD, 12));
+		clickBtn.setFocusable(false);
 		btnPanel.add(clickBtn);      
 		
 		clickBtn.addActionListener(new ActionListener() 
@@ -936,6 +940,7 @@ public class Ventana extends JFrame implements MouseListener
 						anotherBtn.setBounds(x, y, w, h);
 						anotherBtn.setOpaque(true);
 						anotherBtn.setBackground(RandColor);
+						anotherBtn.setFocusable(false);
 						btnPanel.add(anotherBtn);
 						
 					
@@ -1033,7 +1038,9 @@ public class Ventana extends JFrame implements MouseListener
 				}
 		                
 					}
-				});       
+				});     
+		
+		
 						
 	}				
 		
@@ -1070,6 +1077,31 @@ public class Ventana extends JFrame implements MouseListener
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) 
+	{
+		if(e.getKeyCode() == 8)
+		{
+			btnPanel.removeAll();
+			getContentPane().repaint();
+		}
+				
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) 
+	{
 		// TODO Auto-generated method stub
 		
 	}
