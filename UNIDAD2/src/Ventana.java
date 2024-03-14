@@ -907,17 +907,15 @@ public class Ventana extends JFrame implements MouseListener
 		JButton clickBtn = new JButton("Click me!");
 		clickBtn.setBounds(175, 350, 150, 35);
 		clickBtn.setFont(new Font("Consolas", Font.BOLD, 12));
-		btnPanel.add(clickBtn);
-		
-        
+		btnPanel.add(clickBtn);      
 		
 		clickBtn.addActionListener(new ActionListener() 
 		{
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-//				int x = (int) Math.floor(Math.random()*450 + 1);
-//				int y = (int) Math.floor(Math.random()*650 + 1);
+				int x = (int) Math.floor(Math.random()*450 + 1);
+				int y = (int) Math.floor(Math.random()*650 + 1);
 				int w = (int) Math.floor(Math.random()*120 + 1);
 				int h = (int) Math.floor(Math.random()*120 + 1);
 				
@@ -927,60 +925,101 @@ public class Ventana extends JFrame implements MouseListener
 				float b = rand.nextFloat();
 				
 				Color RandColor = new Color(r, g, b);
+				String colorString = "#" + Integer.toHexString(RandColor.getRGB()).substring(2);
 				
-				
-				btnPanel.addMouseListener(new MouseAdapter()
-				{
-					@Override
-					public void mousePressed(MouseEvent e) 
+				 JButton anotherBtn = new JButton(colorString);
 					{
-						int x = e.getX();
-		                int y = e.getY();
-		                int w = (int) Math.floor(Math.random()*120 + 1);
-						int h = (int) Math.floor(Math.random()*120 + 1);
 						
-						Random rand = new Random();
-						float r = rand.nextFloat();
-						float g = rand.nextFloat();
-						float b = rand.nextFloat();
+						anotherBtn.setBounds(x, y, w, h);
+						anotherBtn.setOpaque(true);
+						anotherBtn.setBackground(RandColor);
+						btnPanel.add(anotherBtn);
 						
-						Color RandColor = new Color(r, g, b);
-						String colorString = "#" + Integer.toHexString(RandColor.getRGB()).substring(2);
+					
 
-						
-		                
-		                JButton anotherBtn = new JButton(colorString);
+						ActionListener buttonAction = new ActionListener() 
 						{
-							
-							anotherBtn.setBounds(x, y, w, h);
-							anotherBtn.setOpaque(true);
-							anotherBtn.setBackground(RandColor);
-							btnPanel.add(anotherBtn);
-							
+				            @Override
+				            public void actionPerformed(ActionEvent e) 
+				            {
+				            	JButton yo = (JButton) e.getSource();
+				            	btnPanel.remove(yo);
+				                JButton sourceBtn = (JButton) e.getSource();
+				                Color btnColor = sourceBtn.getBackground();
+//				                String colorText = "Color: (" + r + ", " + g + ", " + b + ")";
+//								JOptionPane.showMessageDialog(null, colorText);
+				            	repaint();
+				            	revalidate();
+				            }
+				        };
+				        
+				        anotherBtn.addActionListener(buttonAction);
+				        
 						
-
-							ActionListener buttonAction = new ActionListener() 
-							{
-					            @Override
-					            public void actionPerformed(ActionEvent e) 
-					            {
-					                JButton sourceBtn = (JButton) e.getSource();
-					                Color btnColor = sourceBtn.getBackground();
-					                String colorText = "Color: (" + r + ", " + g + ", " + b + ")";
-									JOptionPane.showMessageDialog(null, colorText);
-					            }
-					        };
-					        
-					        anotherBtn.addActionListener(buttonAction);
-					        
-							
-							
-							getContentPane().repaint();
-							getContentPane().revalidate();
-						}
+				        getContentPane().repaint();
+						getContentPane().revalidate();
+						
+					}
+				
+				
+				
 						
 						 
 					}});
+		
+		btnPanel.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mousePressed(MouseEvent e) 
+			{
+				int x = e.getX();
+                int y = e.getY();
+                int w = (int) Math.floor(Math.random()*120 + 1);
+				int h = (int) Math.floor(Math.random()*120 + 1);
+				
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+				
+				Color RandColor = new Color(r, g, b);
+				String colorString = "#" + Integer.toHexString(RandColor.getRGB()).substring(2);
+
+				
+                
+                JButton anotherBtn = new JButton(colorString);
+				{
+					
+					anotherBtn.setBounds(x, y, w, h);
+					anotherBtn.setOpaque(true);
+					anotherBtn.setBackground(RandColor);
+					btnPanel.add(anotherBtn);
+					
+				
+
+					ActionListener buttonAction = new ActionListener() 
+					{
+			            @Override
+			            public void actionPerformed(ActionEvent e) 
+			            {
+			            	JButton yo = (JButton) e.getSource();
+			            	btnPanel.remove(yo);
+			                JButton sourceBtn = (JButton) e.getSource();
+			                Color btnColor = sourceBtn.getBackground();
+//			                String colorText = "Color: (" + r + ", " + g + ", " + b + ")";
+//							JOptionPane.showMessageDialog(null, colorText);
+			            	repaint();
+			            	revalidate();
+			            }
+			        };
+			        
+			        anotherBtn.addActionListener(buttonAction);
+			        
+					
+			        getContentPane().repaint();
+					getContentPane().revalidate();
+					
+				}
 		                
 					}
 				});       
