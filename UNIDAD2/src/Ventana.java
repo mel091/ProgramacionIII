@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -46,6 +47,7 @@ import javax.swing.JTextField;
 public class Ventana extends JFrame implements MouseListener, KeyListener
 {
 	JPanel btnPanel = new JPanel();
+	
 	public Ventana()
 	{
 		this.setVisible(true);
@@ -900,8 +902,7 @@ public class Ventana extends JFrame implements MouseListener, KeyListener
 	
 	public void botones()
 	{
-		this.setSize(500, 750);
-		
+		this.setSize(500, 750);		
 		btnPanel.setSize(this.getWidth(), this.getHeight()); 
 		btnPanel.setLocation(0, 0); //pantalla completa + lo de arriba
 		btnPanel.setBackground(Color.decode("#AAA7E6"));
@@ -1092,30 +1093,49 @@ public class Ventana extends JFrame implements MouseListener, KeyListener
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
+		int xn = 0 , yn = 0;
+		
+		Component[] elementos = btnPanel.getComponents();
+		
 		if(e.getKeyCode() == 8)
 		{
 			btnPanel.removeAll();
 			getContentPane().repaint();
 		}
 		
-		if(e.getKeyCode() == 87)
+		if(e.getKeyCode() == 68) //d
 		{
-			Component[] elementos = btnPanel.getComponents();
+			xn += 5;	
 			
-			for(int i = 0 ; i < elementos.length ; i++)
-			{
-				if(elementos[i].getClass().toString().equals("class javax.swing.JButton"))
-				{
-					JButton btn = ((JButton) elementos[i]);
-					btn.setSize(btn.getHeight()+10, btn.getWidth()+10);
-					
-					getContentPane().repaint();
-					getContentPane().revalidate();
-				}
-			}
 		}
-				
+		else if(e.getKeyCode() == 65) //a
+		{
+			xn -= 5;
+			
+		}
+		else if(e.getKeyCode() == 87) // w
+		{
+			yn -= 5;
+		}
+		else if(e.getKeyCode() == 83) //s
+		{
+			yn += 5;
+		}
+		
+		for(Component elemento : elementos)
+		{
+			if(elemento instanceof JButton)
+			{
+				JButton btn = (JButton) elemento; //convertimos elemento a boton
+				Point currentLocation = btn.getLocation();
+				btn.setLocation(currentLocation.x + xn, currentLocation.y + yn);
+			}
+		}	
+		
+		getContentPane().repaint();
+		getContentPane().revalidate();		
 	}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) 
