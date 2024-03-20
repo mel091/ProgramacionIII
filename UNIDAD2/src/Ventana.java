@@ -281,8 +281,8 @@ public class Ventana extends JFrame implements MouseListener, KeyListener
 	public void IniciarComponentes()
 	{
 		//size, location, bg - opaque(opaque oblogatoria), texto string en el constructor
-		//this.login();
-		this.botones();
+		this.login();
+		//this.botones();
 		//this.registro();
 		//this.admin();
 		//this.calculadora();
