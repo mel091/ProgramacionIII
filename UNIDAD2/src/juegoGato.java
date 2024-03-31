@@ -65,15 +65,15 @@ public class juegoGato extends JFrame implements ActionListener
 		
 		turno = true;
 		
-		btnNewButton = new JButton("1");		
-		btnNewButton_1 = new JButton("2");				
-		btnNewButton_3 = new JButton("3");		
-		btnNewButton_6 = new JButton("4");				
-		btnNewButton_2 = new JButton("5");
-		btnNewButton_4 = new JButton("6");	
-		btnNewButton_5 = new JButton("7");		
-		btnNewButton_7 = new JButton("8");		
-		btnNewButton_8 = new JButton("9");
+		btnNewButton = new JButton("");		
+		btnNewButton_1 = new JButton("");				
+		btnNewButton_3 = new JButton("");		
+		btnNewButton_6 = new JButton("");				
+		btnNewButton_2 = new JButton("");
+		btnNewButton_4 = new JButton("");	
+		btnNewButton_5 = new JButton("");		
+		btnNewButton_7 = new JButton("");		
+		btnNewButton_8 = new JButton("");
 		
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 25));
 		btnNewButton.addActionListener(new ActionListener()
@@ -278,8 +278,11 @@ public boolean verificarGanador()
         win();
         return true;
 	}
-	
-   return false;
+	else
+	{		
+		 return false;
+	}
+  
 }
 
 public void win()

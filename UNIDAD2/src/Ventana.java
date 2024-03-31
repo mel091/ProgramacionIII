@@ -281,10 +281,10 @@ public class Ventana extends JFrame implements MouseListener, KeyListener
 	public void IniciarComponentes()
 	{
 		//size, location, bg - opaque(opaque oblogatoria), texto string en el constructor
-		this.login();
+		//this.login();
 		//this.botones();
 		//this.registro();
-		//this.admin();
+		this.admin();
 		//this.calculadora();
 		//this.calculadoraDiseño();
 				//this.paint(getGraphics()); no es necesaria
@@ -401,11 +401,11 @@ public class Ventana extends JFrame implements MouseListener, KeyListener
 				login.add(createAcc);
 				
 				JButton crearBtn = new JButton("Crea una");
-				crearBtn .setBounds(190, 420, 130, 30);
+				crearBtn.setBounds(190, 420, 130, 30);
 				crearBtn.setFont(new Font("Arial", Font.BOLD, 12));
-				crearBtn .setForeground(Color.black);
-				crearBtn .setBackground(Color.yellow);
-				login.add(crearBtn );
+				crearBtn.setForeground(Color.black);
+				crearBtn.setBackground(Color.yellow);
+				login.add(crearBtn);
 				
 				JLabel marco = new JLabel(""); //0 para centrar, 2 izq, 4 der
 				marco.setSize(400, 300); //tamaño al elemento
