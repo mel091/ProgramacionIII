@@ -284,8 +284,8 @@ public class Ventana extends JFrame implements MouseListener, KeyListener
 		//this.login();
 		//this.botones();
 		//this.registro();
-		this.admin();
-		//this.calculadora();
+		//this.admin();
+		this.calculadora();
 		//this.calculadoraDiseño();
 				//this.paint(getGraphics()); no es necesaria
 		this.repaint(); //con esto ya no tenemos que redimensionar para que cargue, lo mismo con el de abajo

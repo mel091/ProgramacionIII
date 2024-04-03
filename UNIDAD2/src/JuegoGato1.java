@@ -18,8 +18,11 @@ public class JuegoGato1 extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
-	public int contX = 0, contY = 0;
+	public int contX, contY;
 	public static boolean turno;
+	
+	JLabel lblNewLabel = new JLabel("X: 0", 0);
+	JLabel lblNewLabel_1 = new JLabel("O: 0", 0);
 	
 	public static JButton btnNewButton;
 	public static JButton btnNewButton_1;
@@ -33,6 +36,8 @@ public class JuegoGato1 extends JFrame implements ActionListener{
 	private JPanel panel;
 	private JButton btnNewButton_9;
 	private JPanel panel_1;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -54,6 +59,7 @@ public class JuegoGato1 extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public JuegoGato1() {
+		this.setTitle("Tic tac toe");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 350);
 		contentPane = new JPanel();
@@ -203,6 +209,8 @@ public class JuegoGato1 extends JFrame implements ActionListener{
 		panel.setLayout(null);
 		
 		btnNewButton_9 = new JButton("Reiniciar");
+		btnNewButton_9.setBackground(Color.decode("#52223c"));
+		btnNewButton_9.setForeground(Color.white);
 		btnNewButton_9.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -210,6 +218,7 @@ public class JuegoGato1 extends JFrame implements ActionListener{
 				reiniciar();
 			}
 		});
+		
 		btnNewButton_9.setBounds(0, 2, 415, 25);
 		panel.add(btnNewButton_9);
 		
@@ -218,14 +227,16 @@ public class JuegoGato1 extends JFrame implements ActionListener{
 		getContentPane().add(panel_1);
 		panel_1.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		JLabel lblNewLabel = new JLabel("X: " + contX, 0);
+		//puntos X
 		lblNewLabel.setOpaque(true);
-		lblNewLabel.setBackground(Color.white);
+		lblNewLabel.setBackground(Color.decode("#6b666d"));
+		lblNewLabel.setForeground(Color.white);
 		panel_1.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("O: " + contY, 0);
+		//puntos O
 		lblNewLabel_1.setOpaque(true);
-		lblNewLabel_1.setBackground(Color.gray);
+		lblNewLabel_1.setBackground(Color.decode("#6c3751"));
+		lblNewLabel_1.setForeground(Color.white);
 		panel_1.add(lblNewLabel_1);
 		
 	}
@@ -235,10 +246,12 @@ public void click(JButton btn)
 	if (turno) 
 	{
         btn.setText("X"); // Si es el turno del jugador 1, establece "X"
+        btn.setBackground(Color.decode("#6b666d"));
     } 
 	else 
 	{
         btn.setText("O"); // Si es el turno del jugador 2, establece "O"
+        btn.setBackground(Color.decode("#6c3751"));
     }
 	
 	verificarGanador();
@@ -343,8 +356,18 @@ public String verificarGanador()
 public void win(String g)
 {
 	
-	 String ganaste = "¡Felicidades! Haz ganado " + g;
+	 String ganaste = "¡Felicidades! Haz ganado jugador " + g;
 	  JOptionPane.showMessageDialog(null, ganaste);
+	  
+	  if(g.equals("X"))
+	  {
+		  lblNewLabel.setText("X: " + contX);
+	  }
+	  else if(g.equals("O"))
+	  {
+		  lblNewLabel_1.setText("O: " + contX);
+	  }
+	
 	  reiniciar();
 }
 
@@ -369,7 +392,20 @@ public void reiniciar()
     btnNewButton_6.setEnabled(true);
     btnNewButton_7.setEnabled(true);
     btnNewButton_8.setEnabled(true);
+    
+    btnNewButton.setBackground(null);
+    btnNewButton_1.setBackground(null);
+    btnNewButton_2.setBackground(null);
+    btnNewButton_3.setBackground(null);
+    btnNewButton_4.setBackground(null);
+    btnNewButton_5.setBackground(null);
+    btnNewButton_6.setBackground(null);
+    btnNewButton_7.setBackground(null);
+    btnNewButton_8.setBackground(null);
 }
+
+
+
 
 @Override
 public void actionPerformed(ActionEvent e) {
