@@ -6,6 +6,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
@@ -57,6 +60,8 @@ public class LoginyRegistro extends JFrame {
 		
 		this.login(this);
 		
+		//this.recuperacionCuenta(this);
+		
 		this.getContentPane();
 		
 	}
@@ -65,7 +70,7 @@ public class LoginyRegistro extends JFrame {
 	{
 		this.setTitle("Registro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 340, 600);
+		setBounds(100, 100, 340, 615);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -262,7 +267,7 @@ public class LoginyRegistro extends JFrame {
 		});
 		
 		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(40, 440, 250, 14);
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(40, 430, 250, 14);
 		panel_1.add(lblNewLabel_1_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Apellido");
@@ -286,7 +291,7 @@ public class LoginyRegistro extends JFrame {
 	{
 		this.setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 340, 600);
+		setBounds(100, 100, 340, 615);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -410,5 +415,105 @@ public class LoginyRegistro extends JFrame {
 		lblNewLabel_1_1_1_1_1_1_1.setBounds(40, 496, 250, 14);
 		panel.add(lblNewLabel_1_1_1_1_1_1_1);
 		
+		JMenuBar barra = new JMenuBar(); //se puede colocar mas menús, constructor vacío
+		JMenu menuFile = new JMenu("Cuenta");
+		JMenu menuFile1 = new JMenu("Usuarios");
+		JMenu menuFile2 = new JMenu("Ayuda");
+		
+		JMenuItem cuentaItem = new JMenuItem("Login");
+		cuentaItem.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				frame.getContentPane().removeAll();
+				login(frame);
+				frame.repaint();
+				frame.revalidate();
+				
+			}
+			
+		});
+		
+		JMenuItem registroItem = new JMenuItem("Registro");
+		registroItem.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				frame.getContentPane().removeAll();
+				registro(frame);
+				frame.repaint();
+				frame.revalidate();
+				
+			}
+			
+		});
+		
+		JMenuItem recuperacionItem = new JMenuItem("Recuperación de cuenta");
+		recuperacionItem.addActionListener(new ActionListener() 
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				frame.getContentPane().removeAll();
+				recuperacionCuenta(frame);
+				frame.repaint();
+				frame.revalidate();
+				
+			}
+			
+		});
+		
+		JMenuItem altaItem = new JMenuItem("Alta");
+		JMenuItem bajaItem = new JMenuItem("Baja");
+		JMenuItem consultarItem = new JMenuItem("Consultar");
+		
+		JMenuItem crearUsuario = new JMenuItem("¿Cómo crear un usuario?");
+		JMenuItem acceder = new JMenuItem("¿Cómo acceder al sistema?");
+		JMenuItem forgotPsw = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		
+		barra.add(menuFile);
+		barra.add(menuFile1);
+		barra.add(menuFile2);
+		
+		menuFile.add(cuentaItem);
+		menuFile.add(registroItem);
+		menuFile.add(recuperacionItem);
+		
+		menuFile1.add(altaItem);
+		menuFile1.add(bajaItem);
+		menuFile1.add(consultarItem);
+		
+		menuFile2.add(crearUsuario);
+		menuFile2.add(acceder);
+		menuFile2.add(forgotPsw);
+		
+		
+		this.setJMenuBar(barra);
+		
+	}
+	
+	public void recuperacionCuenta(JFrame frame)
+	{
+		this.setTitle("Recuperar cuenta");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 340, 615);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Recuperar cuenta", 0);
+		lblNewLabel.setBounds(85, 61, 150, 20);
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Lucida Sans", Font.BOLD, 14));
+		panel.add(lblNewLabel);
 	}
 }
