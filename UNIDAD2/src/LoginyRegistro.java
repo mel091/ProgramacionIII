@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Frame;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -38,6 +40,7 @@ public class LoginyRegistro extends JFrame {
 				try {
 					LoginyRegistro frame = new LoginyRegistro();
 					frame.setVisible(true);
+					//frame.registro(frame);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,13 +53,17 @@ public class LoginyRegistro extends JFrame {
 	 */
 	public LoginyRegistro() 
 	{
-		this.registro();
-		//this.login();
+		//this.registro(this);
+		
+		this.login(this);
+		
+		this.getContentPane();
+		
 	}
 	
-	public void registro()
+	public void registro(JFrame frame)
 	{
-		this.setTitle("Login");
+		this.setTitle("Registro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 340, 600);
 		contentPane = new JPanel();
@@ -207,9 +214,7 @@ public class LoginyRegistro extends JFrame {
 	 						 
 				 }
 				 
-				 
-				
-				 
+				 			 
 				 
 			}});
 		
@@ -241,9 +246,23 @@ public class LoginyRegistro extends JFrame {
 		twitter.setBounds(187, 360, 100, 100);
 		panel_1.add(twitter);
 		
-		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("¿Ya tienes una cuenta? Inicia sesión");
+		JButton lblNewLabel_1_1_1_1_1_1_1 = new JButton("¿Ya tienes una cuenta? Inicia sesión");
+		lblNewLabel_1_1_1_1_1_1_1.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				frame.remove(panel_1);
+				
+				login(frame);
+				frame.repaint();
+				frame.revalidate();			
+				
+			}
+			
+		});
+		
 		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(75, 440, 180, 14);
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(40, 440, 250, 14);
 		panel_1.add(lblNewLabel_1_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Apellido");
@@ -263,7 +282,7 @@ public class LoginyRegistro extends JFrame {
 		panel_1.add(lblNewLabel_2_1_1_2);
 	}
 	
-	public void login()
+	public void login(JFrame frame)
 	{
 		this.setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -372,9 +391,23 @@ public class LoginyRegistro extends JFrame {
 		twitter.setBounds(187, 385, 100, 100);
 		panel.add(twitter);
 		
-		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("¿No tienes una cuenta? Crea una ahora");
+		JButton lblNewLabel_1_1_1_1_1_1_1 = new JButton("¿No tienes una cuenta? Crea una ahora");
+		lblNewLabel_1_1_1_1_1_1_1.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				frame.remove(panel);
+				
+				registro(frame);
+				
+				frame.repaint();
+				frame.revalidate();
+				
+			}
+			
+		});
 		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(65, 496, 200, 14);
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(40, 496, 250, 14);
 		panel.add(lblNewLabel_1_1_1_1_1_1_1);
 		
 	}
