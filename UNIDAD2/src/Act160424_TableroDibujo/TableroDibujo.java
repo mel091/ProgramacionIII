@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 public class TableroDibujo extends JFrame implements KeyListener
 {	
+	int x = 260, y = 180;
 	public TableroDibujo()
 	{
 		this.setTitle("Dibujito");
@@ -26,9 +27,6 @@ public class TableroDibujo extends JFrame implements KeyListener
 		this.inicializar();
 		
 		addKeyListener(this);
-		
-		this.repaint();
-		this.revalidate();
 	}
 	
 	public void inicializar()
@@ -45,6 +43,7 @@ public class TableroDibujo extends JFrame implements KeyListener
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, getWidth(), getHeight());
 		panel.setBackground(Color.white);
+		panel.setFocusable(true);
 		this.add(panel);
 	}
 	
@@ -55,7 +54,7 @@ public class TableroDibujo extends JFrame implements KeyListener
 		Graphics2D g2 = (Graphics2D)g;
 		
 		g2.setColor(Color.decode("#504D9F"));
-		g2.fillRect(25, 45, 480, 280);	
+		g2.fillRect(x, y, 20, 20);	
 		
 	}
 
@@ -68,9 +67,31 @@ public class TableroDibujo extends JFrame implements KeyListener
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
-		int keyCode = e.getKeyCode();
-		System.out.println("Tecla presionada: " + keyCode);
+		System.out.println("Tecla presionada: " + e.getKeyCode());
 		
+		switch(e.getKeyCode())
+		{
+		case 65: //a
+			x -= 10;
+			break;
+			
+		case 87: //w
+			y -= 10;
+			break;
+			 
+		case 68: //d
+			x += 10;
+			break;
+			
+		case 83: //s
+			y += 10;
+			break;
+			
+		default:
+			break;
+		}
+		//this.update(getGraphics()); evitar flash
+		this.repaint();
 	}
 
 	@Override
