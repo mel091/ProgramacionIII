@@ -24,6 +24,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
+
+import java.io.FileReader;
+import java.io.IOException;
+
 public class LoginyRegistro extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -362,7 +369,42 @@ public class LoginyRegistro extends JFrame {
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				JOptionPane.showMessageDialog(null, "No se puede acceder", "Error", JOptionPane.WARNING_MESSAGE);
+				try 
+				{
+					String filePath = "C:\\Users\\lachi\\OneDrive\\Documentos\\Documentos\\json\\users.json";
+					FileReader reader = new FileReader(filePath); //leer archivo
+					
+					StringBuilder jsonString = new StringBuilder(); //guarda el contenido del json
+					int p;
+					
+					while((p = reader.read()) != -1)
+					{
+						jsonString.append((char) p);//convierte a char
+					}
+					
+					reader.close();
+					
+					JSONObject jsonObj = new JSONObject(jsonString.toString()); //objeto a partir del contenido de json
+					JSONArray usersArray = jsonObj.getJSONArray("users"); //array de usuarios json
+					
+					for(int i = 0 ; i < usersArray.length() ; i++) //recorremos todos los usuarios
+					{
+						JSONObject userObj =  usersArray.getJSONObject(i);
+						String user = userObj.getString("maidenName");
+						String psw = userObj.getString("password");
+						
+						System.out.println("User: " + user);
+						System.out.println("Password: " + psw);
+						System.out.println();						
+					}
+
+				} 
+				
+				catch (IOException | JSONException e1) 
+				{
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		btnNewButton.setForeground(new Color(255, 255, 255));
@@ -414,6 +456,8 @@ public class LoginyRegistro extends JFrame {
 		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_1_1_1_1_1_1_1.setBounds(40, 496, 250, 14);
 		panel.add(lblNewLabel_1_1_1_1_1_1_1);
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		JMenuBar barra = new JMenuBar(); //se puede colocar mas menús, constructor vacío
 		JMenu menuFile = new JMenu("Cuenta");
