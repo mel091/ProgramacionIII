@@ -67,7 +67,7 @@ public class LoginyRegistro extends JFrame {
 		
 		this.login(this);
 		
-		//this.recuperacionCuenta(this);
+		//this.inicio(this);
 		
 		this.getContentPane();
 		
@@ -387,15 +387,40 @@ public class LoginyRegistro extends JFrame {
 					JSONObject jsonObj = new JSONObject(jsonString.toString()); //objeto a partir del contenido de json
 					JSONArray usersArray = jsonObj.getJSONArray("users"); //array de usuarios json
 					
+					String user = null;
+					String psw = null;
+					String getPsw = new String(passwordField_1.getPassword());
+					boolean encontrado = false;
+					
 					for(int i = 0 ; i < usersArray.length() ; i++) //recorremos todos los usuarios
 					{
 						JSONObject userObj =  usersArray.getJSONObject(i);
-						String user = userObj.getString("maidenName");
-						String psw = userObj.getString("password");
+						user = userObj.getString("username");
+						psw = userObj.getString("password");
 						
-						System.out.println("User: " + user);
-						System.out.println("Password: " + psw);
-						System.out.println();						
+						if (user.equals(textField_2.getText()) && psw.equals(getPsw)) 
+						{
+					        encontrado = true;
+					        break; 
+					    }
+						
+						//System.out.println("User: " + user);
+						//System.out.println("Password: " + psw);
+//						System.out.println();	9uQFF1Lh	
+						
+					}
+					
+					if(encontrado)
+					{
+						JOptionPane.showMessageDialog(null, "Bienvenido de nuevo");
+								frame.getContentPane().removeAll();
+								inicio(frame);
+								frame.repaint();
+								frame.revalidate();				
+					}
+					else 
+					{
+						JOptionPane.showMessageDialog(null, "Usuario o contraseña no válidos, intente de nuevo.");
 					}
 
 				} 
@@ -448,8 +473,7 @@ public class LoginyRegistro extends JFrame {
 				registro(frame);
 				
 				frame.repaint();
-				frame.revalidate();
-				
+				frame.revalidate();			
 			}
 			
 		});
@@ -615,6 +639,40 @@ public class LoginyRegistro extends JFrame {
 		
 		this.setJMenuBar(barra);
 		
+	}
+	
+	public void inicio(JFrame frame)
+	{
+		this.setTitle("Página de inicio");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 340, 615);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("I n i c i o");
+		lblNewLabel_3.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 17));
+		lblNewLabel_3.setBounds(125, 30, 180, 14);
+		panel.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Novedades");
+		lblNewLabel_4.setForeground(new Color(128, 128, 128));
+		lblNewLabel_4.setFont(new Font("Lucida Sans", Font.PLAIN, 13));
+		lblNewLabel_4.setBounds(20, 75, 280, 20);
+		panel.add(lblNewLabel_4);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(20, 110, 275, 425);
+		panel_1.setBackground(Color.decode("#8E8BE1"));
+		panel.add(panel_1);
 	}
 	
 	public void recuperacionCuenta(JFrame frame)
