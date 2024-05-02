@@ -333,6 +333,8 @@ public class LoginyRegistro extends JFrame {
 		textField_2.setBounds(25, 165, 200, 25);
 		panel.add(textField_2);
 		
+		
+		
 		JLabel lblNewLabel_2_1_1 = new JLabel("------------------------------------------------------------------");
 		lblNewLabel_2_1_1.setForeground(Color.GRAY);
 		lblNewLabel_2_1_1.setBounds(25, 185, 270, 14);
@@ -404,8 +406,8 @@ public class LoginyRegistro extends JFrame {
 					        break; 
 					    }
 						
-						//System.out.println("User: " + user);
-						//System.out.println("Password: " + psw);
+						System.out.println("User: " + user);
+						System.out.println("Password: " + psw);
 //						System.out.println();	9uQFF1Lh	
 						
 					}
