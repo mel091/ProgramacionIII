@@ -40,7 +40,7 @@ public class AuthView
 		//login
 		JLabel lblNewLabel_3 = new JLabel("B i e n v e n i d o");
 		lblNewLabel_3.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 17));
-		lblNewLabel_3.setBounds(100, 100, 340, 615);
+		lblNewLabel_3.setBounds(20, -200, 340, 615);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Accede a tu cuenta ingresando lo siguiente");
@@ -60,11 +60,6 @@ public class AuthView
 		textField_2.setBounds(25, 165, 200, 25);
 		panel.add(textField_2);
 		
-//		JLabel lblNewLabel_2_1_1 = new JLabel("------------------------------------------------------------------");
-//		lblNewLabel_2_1_1.setForeground(Color.GRAY);
-//		lblNewLabel_2_1_1.setBounds(25, 185, 270, 14);
-//		panel.add(lblNewLabel_2_1_1);
-		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Contraseña");
 		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_1_1_1_1.setBounds(25, 210, 100, 14);
@@ -74,30 +69,17 @@ public class AuthView
 		textField_3.setBorder(null);
 		textField_3.setBounds(25, 227, 200, 20);
 		panel.add(textField_3);
-		
-//		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("------------------------------------------------------------------");
-//		lblNewLabel_2_1_1_1_1.setForeground(Color.GRAY);
-//		lblNewLabel_2_1_1_1_1.setBounds(25, 243, 270, 14);
-//		panel.add(lblNewLabel_2_1_1_1_1);
-//		panel.setBackground(Color.pink);
-		
+
 		JButton btnNewButton = new JButton("Acceder");
 		btnNewButton.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				if(modelo.login(textField_2.getText(), textField_3.getText()))
-				{
-					System.out.println("Bienvenido");
-				}
-			
-				else
-					System.out.println("Intenta de nuevo");
-			
+				modelo.login(textField_2.getText(), textField_3.getText());
 			}});
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Lucida Sans", Font.BOLD, 14));
-		btnNewButton.setBounds(60, 310, 200, 35);
+		btnNewButton.setBounds(40, 265, 200, 35);
 		btnNewButton.setBackground(Color.decode("#8E8BE1"));
 		panel.add(btnNewButton);
 		
